@@ -47,6 +47,7 @@ event2 = Event.create!(title: "Free Coffee", description: "This event serves 150
 event3 = Event.create!(title: "Free Pizza and Burgers", description: "This event serves 200 Free Pizzas and 100 Free burger", event_date: "11-10-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
 event4 = Event.create!(title: "Free Chicken", description: "This event serves 150 pounds Free Chicken. We will provide you the chicken pieces of desired weights", event_date: "6-10-2016", event_time: "15:00" ,validity: true, image: "", link: " ")
 event5 = Event.create!(title: "Free Sandwiches", description: "This event serves Free Sandwiches", event_date: "09-10-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
+event6 = Event.create!(title: "Free Food", description: "This event serves Free Food", event_date: "09-10-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
 
 # Location
 fit = Location.create!(department: "Computer Science", building: "FIT", floor: "first floor", room: "")
