@@ -30,10 +30,12 @@ class EventsController < ApplicationController
         if @attended_event == nil
           @attended_event = AttendedEvent.new
         end
-    end
-    
-   
+    end  
   end
+
+  def search
+  end
+
 
   # GET /events/1
   # GET /events/1.json
