@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   #resources :users -- OLD USERS LINE - NOT NEEDED
   resources :foods
   resources :people
+  get 'events/search' , to: 'events#search', as: 'search'
   resources :events
   resources :locations
   resources :keywords
