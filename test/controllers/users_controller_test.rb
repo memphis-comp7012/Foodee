@@ -52,10 +52,6 @@ end
 #  #    @user = users(:abc)
 #  # end
 
-  
-
-  
-# #   require 'test_helper'
 # end
 
 # class User::RegistrationsControllerTest < ActionController::TestCase
