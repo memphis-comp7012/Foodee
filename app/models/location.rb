@@ -11,5 +11,6 @@
 #  updated_at :datetime         not null
 #
 
+
 class Location < ActiveRecord::Base
 end

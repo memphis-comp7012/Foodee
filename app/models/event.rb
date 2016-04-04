@@ -14,5 +14,6 @@
 #  updated_at  :datetime         not null
 #
 
+
 class Event < ActiveRecord::Base
 end

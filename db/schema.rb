@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330040056) do
+ActiveRecord::Schema.define(version: 20160404031435) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -25,6 +32,12 @@ ActiveRecord::Schema.define(version: 20160330040056) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "foods", force: :cascade do |t|
+    t.string   "item"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "keywords", force: :cascade do |t|
     t.string   "tag"
     t.datetime "created_at", null: false
@@ -36,6 +49,20 @@ ActiveRecord::Schema.define(version: 20160330040056) do
     t.string   "building"
     t.string   "floor"
     t.integer  "room"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "logins", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

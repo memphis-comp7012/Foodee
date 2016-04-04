@@ -1,16 +1,17 @@
 # == Schema Information
 #
-# Table name: foods
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  item       :string
+#  comment    :text
+#  score      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class FoodTest < ActiveSupport::TestCase
+class CommentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

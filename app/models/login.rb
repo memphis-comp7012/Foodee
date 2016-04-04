@@ -1,17 +1,13 @@
 # == Schema Information
 #
-# Table name: foods
+# Table name: logins
 #
 #  id         :integer          not null, primary key
-#  item       :string
+#  email      :string
+#  password   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
-
-class FoodTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class Login < ActiveRecord::Base
 end
