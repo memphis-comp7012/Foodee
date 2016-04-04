@@ -10,4 +10,5 @@
 
 
 class Keyword < ActiveRecord::Base
+	validates :tag, presence: true, format: { with: /\A[A-Za-z][A-Za-z]\z/, message: "no special characters and numbers can appear as tag"}
 end
