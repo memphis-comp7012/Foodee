@@ -22,4 +22,7 @@ class Event < ActiveRecord::Base
 	validates :event_time, presence: true, format: { with: /[1]{1}[0-9]{1}|[2]{1}[0-3]{1}\:[0-5]{1}{0-9}{1}/, message: "invalid time"}
 	validates :image, allow_blank: true
 	validates :link, allow_blank: true
+
+	belongs_to :user
+	has :location
 end
