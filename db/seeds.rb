@@ -50,6 +50,8 @@ event5 = Event.create!(title: "Free Sandwiches", description: "This event serves
 # event6 = Event.create!(title: "Free Food", description: "This event serves Free Food", event_date: "10-10-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
 # event7 = Event.create!(title: "Food", description: "This event serves Free Food", event_date: "11-11-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
 
+
+
 # Location
 fit = Location.create!(department: "Computer Science", building: "FIT", floor: "first floor", room: "")
 smith = Location.create!(department: "Bio Informatics", building: "Smith Hall", floor: "fourth floor", room: "416")
