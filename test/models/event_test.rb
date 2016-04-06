@@ -43,8 +43,8 @@ class EventTest < ActiveSupport::TestCase
   	assert @pizz.invalid?
   end
 
-  test "event containing wrong format of the date should be invalid" do
-  	@pizz.event_date = "2016/05/09"
+  test "event containing invalid date should be invalid" do
+  	@pizz.event_date = "2016/23/35"
   	assert @pizz.invalid?
   end
 
@@ -58,7 +58,7 @@ test "event containing no time should be invalid" do
   	assert @pizz.invalid?
   end
 
-  test "event containing wrong format of the time should be invalid" do
+  test "event containing invalid time should be invalid" do
   	@pizz.event_time = "24:12"
   	assert @pizz.invalid?
   end

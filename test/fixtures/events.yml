@@ -22,7 +22,7 @@ free_pizza:
   title: Free Pizza
   description: This event serves 150 Free Pizzas
   event_date: 09-10-2016
-  event_time: 15:00
+  event_time: 10:00 am
   validity: true
   image:
   link:

@@ -15,7 +15,7 @@
 class Location < ActiveRecord::Base
 	validates :department, presence: true, format: { with: /\A[A-Za-z ]+\z/, message: "no special characters and numbers can be present as desired department"}
 	validates :building, presence: true, format: { with: /\A[A-Za-z ]+\z/, message: "no special characters and numbers can be present as desired building"} 
-	validates :floor, presence: true, format: { with: /\A[A-Za-z ]+|[0-9]+\z/, message: "no special characters can be present as desired floor"}
+	validates :floor, presence: true, format: { with: /\A[A-Za-z0-9 ]+\z/, message: "no special characters can be present as desired floor"}
 	validates :room, allow_blank: true, numericality: { only_integer: true }
 
 	belongs_to :event

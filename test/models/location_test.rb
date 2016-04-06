@@ -57,12 +57,12 @@ class LocationTest < ActiveSupport::TestCase
   end
 
   test "location with room number containing alphabets should be invalid" do
-  	@fit.building = "12C"
+  	@fit.room = "12C"
   	assert @fit.invalid?
   end
 
   test "location with room number having special characters should be invalid" do
-  	@fit.building = "1#"
+  	@fit.room = '1$$'
   	assert @fit.invalid?
   end
 end
