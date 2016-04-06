@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406014347) do
+ActiveRecord::Schema.define(version: 20160406055000) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
@@ -45,7 +45,10 @@ ActiveRecord::Schema.define(version: 20160406014347) do
     t.string   "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "event_id"
   end
+
+  add_index "keywords", ["event_id"], name: "index_keywords_on_event_id"
 
   create_table "locations", force: :cascade do |t|
     t.string   "department"

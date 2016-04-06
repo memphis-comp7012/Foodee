@@ -11,4 +11,5 @@
 
 class Keyword < ActiveRecord::Base
 	validates :tag, presence: true, format: { with: /[A-Za-z]+/, message: "no special characters and numbers can appear as tag"}
+	belongs_to :event 
 end

@@ -62,3 +62,17 @@ key2 = Keyword.create!(tag: "pizza")
 key3 = Keyword.create!(tag: "sandwich")
 key4 = Keyword.create!(tag: "burger")
 key5 = Keyword.create!(tag: "chicken")
+
+# event location association
+event1.location <=> fit
+event2.location <=> smith
+event3.location <=> dunn
+event4.location <=> fit2
+event5.location <=> psc
+
+# event keyword association
+event1.keywords << key2
+event2.keywords << key1
+event3.keywords << key2 << key4
+event4.keywords << key5
+event5.keywords << key3
