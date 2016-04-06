@@ -11,10 +11,7 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  comment: MyText
-  score: 1
+tarika:
+  comment: I liked the event.
+  score: 10
 
-two:
-  comment: MyText
-  score: 1
