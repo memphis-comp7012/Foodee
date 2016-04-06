@@ -7,11 +7,12 @@
 #  description :text
 #  event_date  :date
 #  event_time  :time
-#  valid       :boolean
+#  validity    :boolean
 #  image       :string
 #  link        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer
 #
 
 

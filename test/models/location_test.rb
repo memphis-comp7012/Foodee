@@ -9,6 +9,7 @@
 #  room       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  event_id   :integer
 #
 
 
