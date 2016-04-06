@@ -18,20 +18,19 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyText
-  event_date: 2016-03-30
-  event_time: 2016-03-30 04:00:56
-  valid: false
-  image: MyString
-  link: MyString
-
-two:
-  title: MyString
-  description: MyText
-  event_date: 2016-03-30
-  event_time: 2016-03-30 04:00:56
-  valid: false
-  image: MyString
-  link: MyString
+free_pizza:
+  title: Free Pizza
+  description: This event serves 150 Free Pizzas
+  event_date: 09-10-2016
+  event_time: 15:00
+  validity: true
+  image:
+  link:
+# two:
+#   title: MyString
+#   description: MyText
+#   event_date: 2016-03-30
+#   event_time: 2016-03-30 04:00:56
+#   valid: false
+#   image: MyString
+#   link: MyString

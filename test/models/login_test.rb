@@ -30,6 +30,7 @@ class LoginTest < ActiveSupport::TestCase
 		tarika1 = logins(:tarika1)
 		tarika1.email = tarika.email
 		assert tarika1.invalid?
+	end
 
     test "logins with whitespace email should be invalid" do
 	    tarika = logins(:tarika)

@@ -15,14 +15,14 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  department: MyString
-  building: MyString
-  floor: MyString
-  room: 1
+fit:
+  department: Computer Science
+  building: FIT
+  floor: first floor
+  room: 
 
-two:
-  department: MyString
-  building: MyString
-  floor: MyString
-  room: 1
+# two:
+#   department: MyString
+#   building: MyString
+#   floor: MyString
+#   room: 1
