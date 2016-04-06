@@ -64,11 +64,11 @@ key4 = Keyword.create!(tag: "burger")
 key5 = Keyword.create!(tag: "chicken")
 
 # event location association
-event1.location <=> fit
-event2.location <=> smith
-event3.location <=> dunn
-event4.location <=> fit2
-event5.location <=> psc
+event1.location = fit
+event2.location = smith
+event3.location = dunn
+event4.location = fit2
+event5.location = psc
 
 # event keyword association
 event1.keywords << key2
