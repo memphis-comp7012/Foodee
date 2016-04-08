@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: keywords
+#
+#  id         :integer          not null, primary key
+#  tag        :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  event_id   :integer
+#
+
 class KeywordsController < ApplicationController
   before_action :set_keyword, only: [:show, :edit, :update, :destroy]
 
