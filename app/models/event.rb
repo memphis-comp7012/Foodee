@@ -25,7 +25,7 @@ class Event < ActiveRecord::Base
 	validate :event_time_cannot_be_in_the_past
 	belongs_to :user
 	has_one :location
-	has_many :keywords
+	has_and_belongs_to_many :keywords
 
 	def event_date_is_valid_date
     	if !event_date.is_a?(Date)
