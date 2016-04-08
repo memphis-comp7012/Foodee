@@ -10,6 +10,7 @@
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# created by Sambriddhi Mainali
 
 pizza:
   tag: pizza

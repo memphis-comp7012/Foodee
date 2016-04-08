@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :events
   resources :locations
   resources :keywords
+
+  get 'Foodie', to: 'pages#home', as: 'Foodie'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

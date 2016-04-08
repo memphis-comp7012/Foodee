@@ -14,6 +14,7 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #
+# created by Sambriddhi Mainali
 
 
 require 'test_helper'
