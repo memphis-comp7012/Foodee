@@ -14,6 +14,7 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #
+# created by Sambriddhi Mainali
 
 class Event < ActiveRecord::Base
 	validates :title, presence: true, format: { with: /\A[a-zA-Z ]+\z/, message: "no special characters and numbers can be present as event title"}
