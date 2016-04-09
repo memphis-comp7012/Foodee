@@ -1,39 +1,55 @@
 <p id="notice"><%= notice %></p>
+First Last
+<%= link_to 'Edit', edit_event_path(@event) %>
+<%= link_to 'Log out', events_path %>
 
+<% if !@event.validity %>
+  <strong>Invalid!!!</strong>
+<% end %>
 <p>
-  <strong>Title:</strong>
+  <strong>Event Name :</strong>
   <%= @event.title %>
 </p>
 
-<p>
+<%# <p>
   <strong>Description:</strong>
   <%= @event.description %>
-</p>
+<%# </p> -%>
 
 <p>
-  <strong>Event date:</strong>
+  <strong>Date: </strong>
   <%= @event.event_date %>
 </p>
 
 <p>
-  <strong>Event time:</strong>
+  <strong>Time: </strong>
   <%= @event.event_time %>
 </p>
 
-<p>
-  <strong>Validity:</strong>
-  <%= @event.validity %>
-</p>
-
-<p>
+<%#<p>
   <strong>Image:</strong>
   <%= @event.image %>
-</p>
+<%# </p> -%>
 
-<p>
+<%#<p>
   <strong>Link:</strong>
   <%= @event.link %>
-</p>
+<%#</p> -%>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<p> 
+  <strong>Location: </strong> 
+  <%= @event.location.department %>,
+  <%= @event.location.building %>,
+  <%= @event.location.floor %>
+  <% if @event.location.room%>, 
+  <%= @event.location.room %>
+  <% end %>
+</p>
+<p>
+  <strong>Keywords: </strong>
+  <% @event.keywords.each do |keyword| %>
+    <%= keyword.tag %>
+  <% end%>
+</p>
+<%= link_to 'Attend', events_path%>
+<%= link_to 'Back', root_path%>
