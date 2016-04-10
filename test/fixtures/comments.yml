@@ -13,6 +13,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 tarika:
-  comment: I liked the event.
+  comment: "I liked the event."
   score: 10
 

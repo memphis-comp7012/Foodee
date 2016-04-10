@@ -27,13 +27,13 @@ test "nil comments should be invalid" do
 	end
 
  test "empty comment should be invalid" do
-        tarika = logins(:tarika)
+        tarika = comments(:tarika)
 	    tarika.email = ''
 	    assert tarika.invalid?
 	end
 
  test "any text should be valid" do
-        tarika = logins(:tarika)
+        tarika = comments(:tarika)
 	    tarika.email = 'I liked the event'
 	    assert tarika.valid?
 	end
@@ -45,20 +45,20 @@ test "nil comments should be invalid" do
 #--------------------------Test cases for score attribute-----------------------------------------------
 
  test "nil score should be invalid" do
-        tarika = logins(:tarika)
+        tarika = comments(:tarika)
 	    tarika.email = nil
 	    assert tarika.invalid?
 	end
 
  test "empty score should be invalid" do
-        tarika = logins(:tarika)
+        tarika = comments(:tarika)
 	    tarika.email = ''
 	    assert tarika.invalid?
 	end
 
 
  test "score with integer value between 1 and 10 inclusive should be valid" do
-        tarika = logins(:tarika)
+        tarika = comments(:tarika)
 	    tarika.email = 10
 	    assert tarika.valid?
 	end
