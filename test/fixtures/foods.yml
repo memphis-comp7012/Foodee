@@ -10,8 +10,13 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# Created By Qiong
+
 one:
   item: MyString
 
 two:
   item: MyString
+
+pizza:
+  item: pizza

@@ -1,0 +1,23 @@
+<%# created by Sambriddhi Mainali -%>
+
+<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+<%= submit_tag "Search" %>
+
+<h1> Welcome Full name!!!</h1>
+<ul>
+	<li><%= link_to 'Publish Event', new_event_path %></li>
+	<li><%= link_to 'Events I attended', events_path %></li>
+	<li><%= link_to 'Search Summary', events_path %></li>
+</ul>
+    <% @events.each do |event| %>
+    <%= link_to event.title, event %>
+      <%#  <td><%= link_to 'Show', event -%><%# </td>  -%>
+      <br>
+     <% end %>
+<br>
+<ul>
+	<li><%= link_to 'Log out', new_event_path %></li>
+	<li><%= link_to 'Sort Events', events_path %></li>
+	<li><%= link_to 'Filter Events', events_path %></li>
+</ul>
+

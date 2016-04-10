@@ -7,6 +7,7 @@
 #  score      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 class Comment < ActiveRecord::Base
@@ -14,4 +15,6 @@ class Comment < ActiveRecord::Base
 	validates :comment, presence: true
 	validates :score, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 10, message: "score should be given from 1 to 10."}
 
+	
+	belongs_to :user
 end

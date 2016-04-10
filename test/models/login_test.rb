@@ -7,6 +7,7 @@
 #  password   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 require 'test_helper'
@@ -30,6 +31,7 @@ class LoginTest < ActiveSupport::TestCase
 		tarika1 = logins(:tarika1)
 		tarika1.email = tarika.email
 		assert tarika1.invalid?
+	end
 
     test "logins with whitespace email should be invalid" do
 	    tarika = logins(:tarika)

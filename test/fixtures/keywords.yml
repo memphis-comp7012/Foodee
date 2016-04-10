@@ -6,13 +6,14 @@
 #  tag        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  event_id   :integer
 #
 
-
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# created by Sambriddhi Mainali
 
-one:
-  tag: MyString
+pizza:
+  tag: pizza
 
-two:
-  tag: MyString
+# two:
+#   tag: MyString

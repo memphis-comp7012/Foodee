@@ -15,23 +15,22 @@
 #  user_id     :integer
 #
 
-
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# created by Sambriddhi Mainali
 
-one:
-  title: MyString
-  description: MyText
-  event_date: 2016-03-30
-  event_time: 2016-03-30 04:00:56
-  valid: false
-  image: MyString
-  link: MyString
-
-two:
-  title: MyString
-  description: MyText
-  event_date: 2016-03-30
-  event_time: 2016-03-30 04:00:56
-  valid: false
-  image: MyString
-  link: MyString
+free_pizza:
+  title: Free Pizza
+  description: This event serves 150 Free Pizzas
+  event_date: 09-10-2016
+  event_time: 10:00 am
+  validity: true
+  image:
+  link: https://www.google.com
+# two:
+#   title: MyString
+#   description: MyText
+#   event_date: 2016-03-30
+#   event_time: 2016-03-30 04:00:56
+#   valid: false
+#   image: MyString
+#   link: MyString

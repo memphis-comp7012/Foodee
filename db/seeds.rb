@@ -21,7 +21,6 @@ chicken = Food.create!(item: "chicken")
 rib = Food.create!(item: "ribs")
 sandwich = Food.create!(item: "sandwich")
 
-
 # Login
 taki1 = Login.create!(email: "taki@memphis.edu", password: "Takibell0")
 burge1 = Login.create!(email: "burge@memphis.edu", password: "Burgeking0")
@@ -54,7 +53,7 @@ fit = Location.create!(department: "Computer Science", building: "FIT", floor: "
 smith = Location.create!(department: "Bio Informatics", building: "Smith Hall", floor: "fourth floor", room: "416")
 dunn = Location.create!(department: "Computer Science", building: "Dunn Hall", floor: "third floor", room: "352")
 fit2 = Location.create!(department: "Computer Science", building: "FIT", floor: "second floor", room: "270")
-psc = Location.create(department: "Psychology", building: "Psychology Building", floor: "first floor", room: "")
+psc = Location.create!(department: "Psychology", building: "Psychology Building", floor: "first floor", room: "")
 
 #Keyword
 key1 = Keyword.create!(tag: "coffee")
@@ -62,3 +61,39 @@ key2 = Keyword.create!(tag: "pizza")
 key3 = Keyword.create!(tag: "sandwich")
 key4 = Keyword.create!(tag: "burger")
 key5 = Keyword.create!(tag: "chicken")
+
+# event location association
+event1.location = fit
+event2.location = smith
+event3.location = dunn
+event4.location = fit2
+event5.location = psc
+
+# event keyword association
+event1.keywords << key2
+event2.keywords << key1
+event3.keywords << key2 << key4
+event4.keywords << key5
+event5.keywords << key3
+
+
+# User login association
+taki.login = taki1
+burge.login = burge1
+kyla.login = kyla1
+qingl.login = qing11
+lastp.login = lastp1
+
+# User comment association
+taki.comments << C1
+burge.comments << C4 << C5
+kyla.comments << C6 << C7
+qingl.comments << C3 << C4 << C5
+lastp.comments << C6 << C9 << C5 << C1
+
+# Event keywords association
+event1.keywords << key1 << key3 << key4
+event2.keywords << key2 << key4
+event3.keywords << key1 << key4
+key1.events << event4 << event5
+key5.events << event4 << event5
