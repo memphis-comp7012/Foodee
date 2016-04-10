@@ -10,14 +10,18 @@
       </ul>
     </div>
   <% end %>
-
+  <% if @event.validity? %>
+  <div>
+    <%= f.label :Mark_as_Invalid %>
+    <%= f.radio_button :validity, "true", checked: true %>
+    No 
+    <%= f.radio_button :validity, "false" %>
+    Yes
+  </div>
+  <% end %>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
   </div>
   <div class="field">
     <%= f.label :event_date %><br>
@@ -28,8 +32,26 @@
     <%= f.time_select :event_time %>
   </div>
   <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <%#<div class="field">
     <%= f.label :validity %><br>
-    <%= f.check_box :validity %>
+   <%# <%= f.check_box :validity %>
+  <%#</div>-%>
+  <div class="field">
+    <%= f.collection_check_boxes(:keyword_ids, Keyword.all, :id, :tag) %>
+  </div>
+  <div class="field">
+    <%= f.label :Location %>
+    <%= f.fields_for @event.location do |l| %><br>
+    <div>
+    <%= l.text_field :department %>
+    <%= l.text_field :building %>
+    <%= l.text_field :floor %>
+    <%= l.text_field :room %>
+  </div>
+  <% end %>
   </div>
   <div class="field">
     <%= f.label :image %><br>
