@@ -70,5 +70,9 @@ test "event containing no time should be invalid" do
   	assert @pizz.invalid?
   end
 
+  test "event with invalid link should be invalid" do
+    @pizz.link = "demoInvalidURL"
+    assert @pizz.invalid?
+  end
 
 end

@@ -25,7 +25,7 @@ free_pizza:
   event_time: 10:00 am
   validity: true
   image:
-  link:
+  link: https://www.google.com
 # two:
 #   title: MyString
 #   description: MyText
