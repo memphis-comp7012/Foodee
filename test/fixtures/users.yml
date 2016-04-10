@@ -18,3 +18,7 @@ one:
 two:
   first_name: MyString
   last_name: MyString
+
+burge:
+  first_name: burge
+  last_name: king
