@@ -13,11 +13,9 @@
   <% end %>
   <% if @event.validity? %>
   <div>
-    <%= f.label :Mark_as_Invalid %>
-    <%= f.radio_button :validity, "true", checked: true %>
-    No 
-    <%= f.radio_button :validity, "false" %>
-    Yes
+  Mark as Invalid
+   <%= f.radio_button :validity, "0" %> <%= f.label :yes %>
+   <%= f.radio_button :validity, "1" %> <%= f.label :no %>
   </div>
   <% end %>
   <div class="field">
@@ -36,16 +34,12 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  <%#<div class="field">
-    <%= f.label :validity %><br>
-   <%# <%= f.check_box :validity %>
-  <%#</div>-%>
   <div class="field">
     <%= f.collection_check_boxes(:keyword_ids, Keyword.all, :id, :tag) %>
   </div>
   <div class="field">
-    <%= f.label :Location %>
-    <%= f.fields_for @event.location do |l| %><br>
+    <%= f.label :location %>
+    <%= f.fields_for :location do |l| %><br>
     <div>
     <%= l.text_field :department %>
     <%= l.text_field :building %>

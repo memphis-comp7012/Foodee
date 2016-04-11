@@ -30,6 +30,7 @@ class Event < ActiveRecord::Base
 	has_one :location
 	has_and_belongs_to_many :keywords
 	accepts_nested_attributes_for :location
+	accepts_nested_attributes_for :keywords
 	def event_date_is_valid_date
     	if !event_date.is_a?(Date)
       		errors.add(:event_date, 'must be a valid date') 
