@@ -51,5 +51,25 @@ First Last
     <%= keyword.tag %>
   <% end%>
 </p>
+<p>
+
+ <strong>Foods: </strong>
+  <% @event.foods.each do |food| %>
+    <%= food.item %>
+  <% end%>
+  </p>
+<p>
+
+ <strong>Comments: </strong>
+  <% @event.comments.each do |comment| %>
+   <p> Comment:
+    <%= comment.comment %>
+    <br>
+    Score:
+    <%= comment.score %>
+</p>
+  <% end%>
+
+</p>
 <%= link_to 'Attend', events_path%>
 <%= link_to 'Back', root_path%>

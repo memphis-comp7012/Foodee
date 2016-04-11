@@ -1,5 +1,72 @@
-<h1>New Event</h1>
+<%= #Created by : Tarika Bedse %>
 
-<%= render 'form' %>
+<center><h1>Create Event</h1>
 
-<%= link_to 'Back', events_path %>
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Title of the event: " %> <%= f.text_field :title %>
+  </div>
+
+<div class="field"> 
+	 <%= f.label "Event Date: " %> <%= f.date_select :event_date %>
+</div>
+
+  <div class="field">
+    	<%= f.label "Event Time: " %>  <%= f.time_select :event_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Event Description: " %>   <%= f.text_area :description %>
+  </div>
+  
+ <div class="field">
+    <%= f.label "Tag/Keywords" %> <%= f.fields_for :keywords do |kw| %>  <%= kw.text_field :tag %> <% end %>
+</div>
+
+ <div class="field">
+    <%= f.label "Food Items: " %> <%= f.fields_for :foods do |fo| %>  <%= fo.text_field :item %> <% end %>
+</div>
+
+<p>Location:
+  
+      <div class="field">
+    <%= f.label "Department: " %> <%= f.fields_for :department do |de| %>  <%= de.text_field :department %> <% end %> </div>
+
+      <div class="field">
+    <%= f.label "Building: " %> <%= f.fields_for :building do |bu| %>  <%= bu.text_field :building %> <% end %> </div>
+      
+      <div class="field">
+    <%= f.label "Floor: " %> <%= f.fields_for :floor do |fl| %>  <%= fl.text_field :floor %> <% end %> </div> 
+
+     <div class="field">
+    <%= f.label "Room: " %> <%= f.fields_for :room do |ro| %>  <%= ro.text_field :room %> <% end %> </div>
+              
+</p>
+
+
+<div class="field">
+    <%= f.label "Upload Image: (Optional) " %>    <%= f.file_field  :image %>
+  </div>
+
+<div class="field">
+    <%= f.label "Link: " %>    <%= f.text_field  :link %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Publish" %>
+  </div>
+<% end %>
+</center>

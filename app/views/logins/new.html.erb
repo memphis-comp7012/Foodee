@@ -1,5 +1,25 @@
-<h1>New Login</h1>
+<%= #Created by : Tarika Bedse %>
 
-<%= render 'form' %>
+<center><h1>Foodee Login Page</h1>
 
-<%= link_to 'Back', logins_path %>
+ <%= form_for(:session, url: login_path) do |f| %>
+
+
+   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Login" %>
+  </div>
+<% end %>
+
+
+</center>

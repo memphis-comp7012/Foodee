@@ -8,7 +8,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer
-#
+#  event_id   :integer
+
+
+#Created by : Tarika Bedse 
+
+
 
 class Comment < ActiveRecord::Base
 	
@@ -17,4 +22,5 @@ class Comment < ActiveRecord::Base
 
 	
 	belongs_to :user
+	belongs_to :event
 end

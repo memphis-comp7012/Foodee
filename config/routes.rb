@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  get    'login'   => 'logins#new'
+  post   'login'   => 'logins#create'
+  get    'logout'  => 'logins#destroy'
+
   resources :comments
   resources :logins
   resources :foods

@@ -6,6 +6,7 @@
 #  item       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  event_id   :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -14,7 +14,6 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #
-# created by Sambriddhi Mainali
 
 class Event < ActiveRecord::Base
 	validates :title, presence: true, format: { with: /\A[a-zA-Z ]+\z/, message: "no special characters and numbers can be present as event title"}
@@ -29,6 +28,12 @@ class Event < ActiveRecord::Base
 	belongs_to :user
 	has_one :location
 	has_and_belongs_to_many :keywords
+	accepts_nested_attributes_for :location
+	accepts_nested_attributes_for :keywords
+
+	has_many :foods
+	accepts_nested_attributes_for :foods
+	has_many :comments
 
 	def event_date_is_valid_date
     	if !event_date.is_a?(Date)

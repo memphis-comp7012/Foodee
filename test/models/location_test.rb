@@ -11,8 +11,6 @@
 #  updated_at :datetime         not null
 #  event_id   :integer
 #
-# created by Sambriddhi Mainali
-
 
 require 'test_helper'
 

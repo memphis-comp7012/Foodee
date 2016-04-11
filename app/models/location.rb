@@ -11,7 +11,6 @@
 #  updated_at :datetime         not null
 #  event_id   :integer
 #
-# created by Sambriddhi Mainali
 
 class Location < ActiveRecord::Base
 	validates :department, presence: true, format: { with: /\A[A-Za-z ]+\z/, message: "no special characters and numbers can be present as desired department"}

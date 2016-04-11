@@ -97,3 +97,17 @@ event2.keywords << key2 << key4
 event3.keywords << key1 << key4
 key1.events << event4 << event5
 key5.events << event4 << event5
+
+# Event Food association
+event1.foods << pizza << burger
+event2.foods << burger
+event3.foods << chicken
+event4.foods << rib
+event5.foods << sandwich
+
+# Event Comment association
+event1.comments << C1 << C2
+event2.comments << C3 << C5
+event3.comments << C4 << C6
+event4.comments << C9 << C7
+event5.comments << C3 << C8
