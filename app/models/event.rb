@@ -30,7 +30,6 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :keywords
 	accepts_nested_attributes_for :location
 	accepts_nested_attributes_for :keywords
-
 	has_many :foods
 	accepts_nested_attributes_for :foods
 	has_many :comments

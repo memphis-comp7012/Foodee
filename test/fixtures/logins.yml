@@ -16,6 +16,6 @@ tarika:
   email: tarikab@memphis.edu
   password: Mystring1
 
- tarika1:
-   email: tarikab2@memphis.edu
-   password: Mystring2
+ # tarika1:
+ #   email: tarikab2@memphis.edu
+ #   password: Mystring2

@@ -32,12 +32,13 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    #@event.location.build
-    #@event.keywords.build
+    @event.location.build
+    @event.keywords.build
 
     4.times { @event.keywords << Keyword.new }
     4.times { @event.foods << Food.new }
     #@event.location << Location.new
+
 
   end
 
@@ -65,6 +66,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
+      # @event.update(params.require(:event).permit(:title, :description, :event_date, :event_time, :validity, :image, :link, location_attributes: [:id, :department, :building, :floor, :room]))
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
@@ -93,8 +95,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      #params.require(:event).permit(:title, :description, :event_date, :event_time, :valid, :image, :link)
       params.require(:event).permit(:title, :description, :event_date, :event_time, :validity, :image, :link, location_attributes:[:id, :department, :building, :floor, :room], keyword_ids: [])
-
     end
 end
