@@ -69,6 +69,14 @@ event3.location = dunn
 event4.location = fit2
 event5.location = psc
 
+# event keyword association
+ event1.keywords << key2
+ event2.keywords << key1
+ event3.keywords << key2 << key4
+ event4.keywords << key5
+ event5.keywords << key3
+ 
+
 # User login association
 taki.login = taki1
 burge.login = burge1
