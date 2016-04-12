@@ -21,6 +21,7 @@ class CommentTest < ActiveSupport::TestCase
 #######################################################################################################
 #------------------Test cases for comment attribute----------------------------------------------------
 
+
 test "nil comments should be invalid" do
         tarika = comments(:tarika)
 	    tarika.comment = nil
@@ -29,13 +30,13 @@ test "nil comments should be invalid" do
 
  test "empty comment should be invalid" do
         tarika = comments(:tarika)
-	    tarika.email = ''
+	    tarika.comment = ''
 	    assert tarika.invalid?
 	end
 
  test "any text should be valid" do
         tarika = comments(:tarika)
-	    tarika.email = 'I liked the event'
+	    tarika.comment = 'I liked the event'
 	    assert tarika.valid?
 	end
 
@@ -47,20 +48,20 @@ test "nil comments should be invalid" do
 
  test "nil score should be invalid" do
         tarika = comments(:tarika)
-	    tarika.email = nil
+	    tarika.score = nil
 	    assert tarika.invalid?
 	end
 
  test "empty score should be invalid" do
         tarika = comments(:tarika)
-	    tarika.email = ''
+	    tarika.score = ''
 	    assert tarika.invalid?
 	end
 
 
  test "score with integer value between 1 and 10 inclusive should be valid" do
         tarika = comments(:tarika)
-	    tarika.email = 10
+	    tarika.score = 10
 	    assert tarika.valid?
 	end
 
