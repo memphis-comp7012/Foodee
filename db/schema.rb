@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412013611) do
+ActiveRecord::Schema.define(version: 20160412023221) do
 
   create_table "Events_Keywords", id: false, force: :cascade do |t|
     t.integer "event_id",   null: false
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20160412013611) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "event_id"
+    t.integer  "person_id"
   end
 
   add_index "comments", ["event_id"], name: "index_comments_on_event_id"
+  add_index "comments", ["person_id"], name: "index_comments_on_person_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "events", force: :cascade do |t|
@@ -75,21 +77,23 @@ ActiveRecord::Schema.define(version: 20160412013611) do
 
   add_index "locations", ["event_id"], name: "index_locations_on_event_id"
 
-  create_table "logins", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-  end
-
-  add_index "logins", ["user_id"], name: "index_logins_on_user_id"
-
-  create_table "users", force: :cascade do |t|
+  create_table "people", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "person_id"
+  end
+
+  add_index "users", ["person_id"], name: "index_users_on_person_id"
+  add_index "users", ["user_id"], name: "index_users_on_user_id"
 
 end

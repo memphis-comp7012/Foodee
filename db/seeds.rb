@@ -6,12 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# User
-taki = User.create!(first_name: "taki", last_name: "bell")
-burge = User.create!(first_name: "burge", last_name: "king")
-kyla = User.create!(first_name: "kyla", last_name: "bigh")
-qingl = User.create!(first_name: "qingl", last_name: "yull")
-lastp = User.create!(first_name: "lastp", last_name: "this")
+# Person
+taki = Person.create!(first_name: "taki", last_name: "bell")
+burge = Person.create!(first_name: "burge", last_name: "king")
+kyla = Person.create!(first_name: "kyla", last_name: "bigh")
+qingl = Person.create!(first_name: "qingl", last_name: "yull")
+lastp = Person.create!(first_name: "lastp", last_name: "this")
 
 
 # Food
@@ -21,12 +21,12 @@ chicken = Food.create!(item: "chicken")
 rib = Food.create!(item: "ribs")
 sandwich = Food.create!(item: "sandwich")
 
-# Login
-taki1 = Login.create!(email: "taki@memphis.edu", password: "Takibell0")
-burge1 = Login.create!(email: "burge@memphis.edu", password: "Burgeking0")
-kyla1 = Login.create!(email: "kyla@memphis.edu", password: "Kylabigh0")
-qing11 = Login.create!(email: "qing1@memphis.edu", password: "Qingyull0")
-lastp1 = Login.create!(email: "lastp@memphis.edu", password: "Lastpthis0")
+# User
+taki1 = User.create!(email: "taki@memphis.edu", password: "Takibell0")
+burge1 = User.create!(email: "burge@memphis.edu", password: "Burgeking0")
+kyla1 = User.create!(email: "kyla@memphis.edu", password: "Kylabigh0")
+qing11 = User.create!(email: "qing1@memphis.edu", password: "Qingyull0")
+lastp1 = User.create!(email: "lastp@memphis.edu", password: "Lastpthis0")
 
 
 # Comment
@@ -77,35 +77,35 @@ event5.location = psc
  event5.keywords << key3
  
 
-# User login association
-taki.login = taki1
-burge.login = burge1
-kyla.login = kyla1
-qingl.login = qing11
-lastp.login = lastp1
+# Person User association
+taki.user = taki1
+burge.user = burge1
+kyla.user = kyla1
+qingl.user = qing11
+lastp.user = lastp1
 
-# User comment association
+# # Person comment association
 taki.comments << C1
 burge.comments << C4 << C5
 kyla.comments << C6 << C7
 qingl.comments << C3 << C4 << C5
 lastp.comments << C6 << C9 << C5 << C1
 
-# Event keywords association
+# # Event keywords association
 event1.keywords << key1 << key3 << key4
 event2.keywords << key2 << key4
 event3.keywords << key1 << key4
 key1.events << event4 << event5
 key5.events << event4 << event5
 
-# Event Food association
+# # Event Food association
 event1.foods << pizza << burger
 event2.foods << burger
 event3.foods << chicken
 event4.foods << rib
 event5.foods << sandwich
 
-# Event Comment association
+# # Event Comment association
 event1.comments << C1 << C2
 event2.comments << C3 << C5
 event3.comments << C4 << C6
