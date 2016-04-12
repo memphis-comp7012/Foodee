@@ -111,3 +111,8 @@ event2.comments << C3 << C5
 event3.comments << C4 << C6
 event4.comments << C9 << C7
 event5.comments << C3 << C8
+
+# Event Person association 
+taki.events << event1 << event2
+burge.events << event3
+lastp.events << event4 << event5

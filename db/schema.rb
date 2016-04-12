@@ -43,8 +43,10 @@ ActiveRecord::Schema.define(version: 20160412023221) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.integer  "person_id"
   end
 
+  add_index "events", ["person_id"], name: "index_events_on_person_id"
   add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "foods", force: :cascade do |t|
