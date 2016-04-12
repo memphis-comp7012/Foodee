@@ -16,7 +16,7 @@
      <% end %>
 <br>
 <ul>
-	<li><%= link_to 'Log out', new_event_path %></li>
+	<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 	<li><%= link_to 'Sort Events', events_path %></li>
 	<li><%= link_to 'Filter Events', events_path %></li>
 </ul>

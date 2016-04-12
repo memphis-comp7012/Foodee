@@ -12,10 +12,11 @@
 #  link        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :integer
+#  person_id   :integer
 #
 
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -32,8 +33,8 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    @event.location.build
-    @event.keywords.build
+    #@event.location.build
+    #@event.keywords.build
 
     4.times { @event.keywords << Keyword.new }
     4.times { @event.foods << Food.new }

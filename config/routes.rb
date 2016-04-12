@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
 
-  get    'login'   => 'users#new'
-  post   'login'   => 'users#create'
-  get    'logout'  => 'users#destroy'
-
+  devise_for :users
   resources :comments
-  resources :users
+  #resources :users -- OLD USERS LINE - NOT NEEDED
   resources :foods
   resources :people
   resources :events

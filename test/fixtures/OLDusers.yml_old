@@ -1,19 +1,21 @@
 # == Schema Information
 #
-# Table name: comments
+# Table name: users
 #
 #  id         :integer          not null, primary key
-#  comment    :text
-#  score      :integer
+#  email      :string
+#  password   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  event_id   :integer
-#  person_id  :integer
+#  user_id    :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 tarika:
-  comment: I liked the event.
-  score: 10
+  email: tarikab@memphis.edu
+  password: Mystring1
 
+ # tarika1:
+ #   email: tarikab2@memphis.edu
+ #   password: Mystring2

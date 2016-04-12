@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.text :description
       t.date :event_date
       t.time :event_time
-      t.boolean :valid
+      t.boolean :validity
       t.string :image
       t.string :link
 

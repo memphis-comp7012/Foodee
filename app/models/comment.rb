@@ -7,9 +7,9 @@
 #  score      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  person_id    :integer
 #  event_id   :integer
-
+#  person_id  :integer
+#
 
 #Created by : Tarika Bedse 
 

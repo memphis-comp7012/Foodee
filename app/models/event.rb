@@ -12,7 +12,7 @@
 #  link        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  person_id     :integer
+#  person_id   :integer
 #
 
 class Event < ActiveRecord::Base
