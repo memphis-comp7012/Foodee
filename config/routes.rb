@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  get    'login'   => 'logins#new'
-  post   'login'   => 'logins#create'
-  get    'logout'  => 'logins#destroy'
+  get    'login'   => 'users#new'
+  post   'login'   => 'users#create'
+  get    'logout'  => 'users#destroy'
 
   resources :comments
-  resources :logins
-  resources :foods
   resources :users
+  resources :foods
+  resources :people
   resources :events
   resources :locations
   resources :keywords
