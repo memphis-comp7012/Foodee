@@ -1,19 +1,25 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: logins
 #
 #  id         :integer          not null, primary key
-#  first_name :string
-#  last_name  :string
+#  email      :string
+#  password   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
+#  user_id    :integer
+
+
+#Created by : Tarika Bedse 
+
+
 
 class User < ActiveRecord::Base
-	validates :first_name, presence: true, format: { with: /\A[A-Za-z][A-Za-z]{3,20}\z/, message: "allow letters of length between 3 and 20"}, allow_blank: false
-	validates :last_name, presence: true, format: { with: /\A[A-Za-z][A-Za-z]{3,20}\z/, message: "allow letters of length between 3 and 20"}, allow_blank: false
 
-	has_many :events
-	has_one :login
-	has_many :comments
+	# has_secure_password
+	
+	validates :email, uniqueness: true, presence: true , format: { with: /\A[A-Za-z][A-Za-z0-9]*@memphis.edu\z/, message: " - Enter valid memphis.edu email address e.g. abc@memphis.edu"}, allow_blank: false
+	validates :password, presence: true, length: { minimum: 6 }, format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).{6,}\z/, message: "must be at least 6 characters and include one number and one upper case letter."}, allow_blank: false
+
+	belongs_to :person
 end
