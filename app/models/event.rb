@@ -12,7 +12,7 @@
 #  link        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :integer
+#  person_id     :integer
 #
 
 class Event < ActiveRecord::Base
@@ -25,7 +25,7 @@ class Event < ActiveRecord::Base
 	validate :event_time_is_valid_time
 	validate :event_date_cannot_be_in_the_past
 	validate :event_time_cannot_be_in_the_past
-	belongs_to :user
+	belongs_to :person
 	has_one :location
 	has_and_belongs_to_many :keywords
 	accepts_nested_attributes_for :location

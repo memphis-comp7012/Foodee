@@ -3,63 +3,108 @@
 # Table name: users
 #
 #  id         :integer          not null, primary key
-#  first_name :string
-#  last_name  :string
+#  email      :string
+#  password   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
-
-# Created by Qiong
 
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  	# test "the truth" do
-  	#   assert true
-  	# end
-  	def setup
-  		@burge = users(:burge)
-  	end
+  # test "the truth" do
+  #   assert true
+  # end
+  ####################################################################################################
+  #-----------------------------Test cases for email address attribute--------------------------------
 
-  	test "normal user should be valid" do
-		assert @burge.valid?
-	end
-	
 
-  	test "user's first name contains special charactor should be invalid" do
-		@burge.first_name = "@Qiong"
-		assert @burge.invalid?
+    test "users with nil email address should be invalid" do
+        tarika = users(:tarika)
+	    tarika.email = nil
+	    assert tarika.invalid?
 	end
 
-
-	test "user's last name contains special charactor should be invalid" do
-		@burge.last_name = "@you"
-		assert @burge.invalid?
+    test "users with unique email address should be valid" do
+	    tarika = users(:tarika)
+		tarika1 = users(:tarika1)
+		tarika1.email = tarika.email
+		 	assert tarika1.invalid?
 	end
 
-	
-	test "user's first name contains less than 3 charactor should be invalid" do
-		@burge.first_name = "qi"
-		assert @burge.invalid?
+    test "users with whitespace email should be invalid" do
+	    tarika = users(:tarika)
+	    tarika.email = '  '
+	    assert tarika.invalid?
 	end
 
-
-	test "user's last name contains less than 3 charactor should be invalid" do
-	
-		@burge.last_name = "yu"
-		assert @burge.invalid?
+	test "users with valid email address should be valid" do
+        tarika = users(:tarika)
+	   	assert tarika.valid?
 	end
 
+	test "email address with @memphis.edu should be valid" do
+	    tarika = users(:tarika)
+        tarika.email = tarika@memphis.edu
+        assert tarika.valid?
+    end
 
-	test "empty first_name should be invalid" do
-		@burge.first_name = ""
-		assert @burge.invalid?
+    test "email address without @memphis.edu should be invalid" do
+        tarika = users(:tarika)
+        tarika.email = tarika@gmail.com
+        asssert tarika.invalid?
+    end
+
+#--------------------------End of test cases for email attribute-----------------------------------------
+#########################################################################################################
+
+#########################################################################################################
+#-------------------------Test cases for password attribute----------------------------------------------
+
+ test "users with nil password should be invalid" do
+        tarika = users(:tarika)
+	    tarika.password = nil
+	    assert tarika.invalid?
 	end
 
-
-	test "empty last_name should be invalid" do
-		@burge.last_name = ""
-		assert @burge.invalid?
+test "users with empty password should be invalid" do
+        tarika = users(:tarika)
+	    tarika.password = ''
+	    assert tarika.invalid?
 	end
+
+test "users with whitespace password should be invalid" do
+        tarika = users(:tarika)
+	    tarika.password = '   '
+	    assert tarika.invalid?
+	end
+
+test "users with minimum 6 characters including atleast one number and one upper case in password should be valid" do
+        tarika = users(:tarika)
+	    tarika.password = '1Adfrvgfd'
+	    assert tarika.valid?
+	end
+
+test "users with less than 6 characters should be invalid" do
+        tarika = users(:tarika)
+	    tarika.password = 'aszx'
+	    assert tarika.invalid?
+	end
+
+#---------------------End of test cases for password attribute------------------------------------------
+########################################################################################################
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
