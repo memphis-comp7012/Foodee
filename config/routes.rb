@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  resources :attended_events
+  devise_for :users, controllers: {registrations: 'users/registrations'}
   resources :comments
   #resources :users -- OLD USERS LINE - NOT NEEDED
   resources :foods

@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412051220) do
+ActiveRecord::Schema.define(version: 20160413093620) do
 
   create_table "Events_Keywords", id: false, force: :cascade do |t|
     t.integer "event_id",   null: false
     t.integer "keyword_id", null: false
+  end
+
+  create_table "attended_events", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -75,12 +82,8 @@ ActiveRecord::Schema.define(version: 20160412051220) do
 
   add_index "locations", ["event_id"], name: "index_locations_on_event_id"
 
-  create_table "people", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "people" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

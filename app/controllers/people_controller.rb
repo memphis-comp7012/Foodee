@@ -10,7 +10,8 @@
 #
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter :require_no_authentication, only: :create
+  
   # GET /people
   # GET /people.json
   def index
@@ -25,6 +26,9 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person = Person.new
+    build_resource({})
+    resource.build_user
+    respond_with self.resource
   end
 
   # GET /people/1/edit
@@ -35,7 +39,7 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
-
+    @person.user = current_user
     respond_to do |format|
       if @person.save
         format.html { redirect_to @person, notice: 'person was successfully created.' }
@@ -78,7 +82,9 @@ class PeopleController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    # Modified by Qiong
+    # origin: params.require(:person).permit(:department, :building, :floor, :room)
     def person_params
-      params.require(:person).permit(:department, :building, :floor, :room)
+      params.require(:person).permit(:first_name, :last_name)
     end
 end

@@ -1,4 +1,7 @@
 class DeviseCreateUsers < ActiveRecord::Migration
+  # modified by Qiong 
+  # add association
+       
   def change
     create_table(:users) do |t|
       ## Database authenticatable

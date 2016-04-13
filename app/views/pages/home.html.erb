@@ -3,7 +3,10 @@
 <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
 <%= submit_tag "Search" %>
 
-<h1> Welcome Full name!!!</h1>
+<h1> Welcome 
+    <%= @person.first_name %> <%= @person.last_name %>!!!
+
+  </h1>
 <ul>
 	<li><%= link_to 'Publish Event', new_event_path %></li>
 	<li><%= link_to 'Events I attended', events_path %></li>

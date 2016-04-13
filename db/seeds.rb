@@ -78,11 +78,11 @@ event5.location = psc
  
 
 # Person User association
-taki.user = taki1
-burge.user = burge1
-kyla.user = kyla1
-qingl.user = qing11
-lastp.user = lastp1
+taki1.person = taki
+burge1.person = burge
+kyla1.person = kyla
+qing11.person = qingl
+lastp1.person = lastp
 
 # # Person comment association
 taki.comments << C1

@@ -4,5 +4,8 @@ class PagesController < ApplicationController
 
 	def home
     	@events = Event.all
+    	if current_user
+    		@person = current_user.person
+    	end
   	end
 end
