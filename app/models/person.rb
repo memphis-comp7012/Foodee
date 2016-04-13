@@ -3,10 +3,12 @@
 # Table name: people
 #
 #  id         :integer          not null, primary key
+#  user_id    :integer
 #  first_name :string
 #  last_name  :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  created_at :datetime
+#  updated_at :datetime
+#  user       :reference
 #
 
 class Person < ActiveRecord::Base

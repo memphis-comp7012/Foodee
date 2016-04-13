@@ -3,11 +3,14 @@
 # Table name: people
 #
 #  id         :integer          not null, primary key
+#  user_id    :integer
 #  first_name :string
 #  last_name  :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  created_at :datetime
+#  updated_at :datetime
+#  user       :reference
 #
+
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
   skip_before_filter :require_no_authentication, only: :create
