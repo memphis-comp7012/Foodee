@@ -1,11 +1,15 @@
 <%# done by Sambriddhi Mainali -%>
 <p id="notice"><%= notice %></p>
-First Last
+<strong><%= @person.first_name %> <%= @person.last_name %></strong>
 <%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to 'Log out', events_path %>
 
 <% if !@event.validity %>
   <strong>Invalid!!!</strong>
+<% end %>
+
+<% if @attended_event != nil  %>
+  <strong>Attend</strong>
 <% end %>
 <p>
   <strong>Event Name :</strong>
@@ -77,5 +81,28 @@ First Last
   <% end%>
 
 </p>
-<%= link_to 'Attend', events_path%>
+
+
+<!-- <div class="actions">
+Qiong: was trying to add attend function
+        Then realize there is a re-direct loop
+        need to be fixed
+
+
+<% if @attended_event == nil  %>
+<% if @event != nil %>
+  <%= form_for(@event) do |s| %>
+    <%= s.fields_for :attended_event do |a| %><br>
+    <% a.text_field :user_id, value: @user.id %>
+    <% a.text_field :event_id, value: @event.id %>
+    
+    <div class="actions">
+      <%= s.submit "Attend" %>
+    </div>
+  <% end %>
+<% end %>
+<% end %>
+</div> 
+<%= javascript_include_tag('sortEvent.js') %>
+-->
 <%= link_to 'Back', root_path%>

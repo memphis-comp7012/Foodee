@@ -1,0 +1,49 @@
+<%= form_for(@event) do |f| %>
+  <div class="field">
+  Sort:
+    <%= f.sort_fields do |s|%><br>
+      <%= s.sort_select %>
+    <% end %>
+  </div>
+  
+  <div class = "actions"><%= f.submit "Search" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :event_date %><br>
+    <%= f.date_select :event_date %>
+  </div>
+  <div class="field">
+    <%= f.label :event_time %><br>
+    <%= f.time_select :event_time %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.collection_check_boxes(:keyword_ids, Keyword.all, :id, :tag) %>
+  </div>
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.fields_for :location do |l| %><br>
+    <div>
+    <%= l.text_field :department %>
+    <%= l.text_field :building %>
+    <%= l.text_field :floor %>
+    <%= l.text_field :room %>
+  </div>
+  <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -21,13 +21,34 @@ class EventsController < ApplicationController
 
   # GET /events
   # GET /events.json
+  helper_method :sort_column, :sort_direction
   def index
-    @events = Event.all
+    @events = Event.order(sort_column + ' ' + sort_direction)
+    if current_user
+        @user = current_user
+        @attended_event = AttendedEvent.find_by_user_id(current_user.id)
+        if @attended_event == nil
+          @attended_event = AttendedEvent.new
+        end
+    end
+    
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @attended_event = AttendedEvent.new
+    @user = current_user
+
+    # respond_to do |format|
+    #   if @attended_event.save
+    #     format.html { redirect_to @event, notice: 'Attend was successfully saved.' }
+    #     format.json { render :show, status: :created, location: @event }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @event.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # GET /events/new
@@ -98,4 +119,15 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:title, :description, :event_date, :event_time, :validity, :image, :link, location_attributes:[:id, :department, :building, :floor, :room], keyword_ids: [])
     end
+
+    def sort_column
+      params[:sort] || "event_time"
+    end
+  
+    def sort_direction
+      params[:direction] || "asc"
+    end
+
+
 end
+
