@@ -55,6 +55,12 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @event.location = Location.new
+    if current_user
+        @person = current_user.person
+    end        
+
+    #@event.location.build
+    #@event.keywords.build
     4.times { @event.keywords << Keyword.new }
     4.times { @event.foods << Food.new }
   end
