@@ -54,14 +54,9 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    #@event.location.build
-    #@event.keywords.build
-
+    @event.location = Location.new
     4.times { @event.keywords << Keyword.new }
     4.times { @event.foods << Food.new }
-    #@event.location << Location.new
-
-
   end
 
   # GET /events/1/edit
@@ -117,7 +112,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :event_date, :event_time, :validity, :image, :link, location_attributes:[:id, :department, :building, :floor, :room], keyword_ids: [])
+      params.require(:event).permit(:title, :description, :event_date, :event_time, :validity, :image, :link, location_attributes:[:id, :department, :building, :floor, :room], keyword_ids: [], food_ids: [])
     end
 
     def sort_column

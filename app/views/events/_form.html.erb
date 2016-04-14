@@ -35,16 +35,21 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
+    <%= f.label :keywords %>
     <%= f.collection_check_boxes(:keyword_ids, Keyword.all, :id, :tag) %>
+  </div>
+  <div class="field">
+    <%= f.label :foods %>
+    <%= f.collection_check_boxes(:food_ids, Food.all, :id, :item) %>
   </div>
   <div class="field">
     <%= f.label :location %>
     <%= f.fields_for :location do |l| %><br>
     <div>
-    <%= l.text_field :department %>
-    <%= l.text_field :building %>
-    <%= l.text_field :floor %>
-    <%= l.text_field :room %>
+    <%= l.text_field :department, placeholder: "Department" %>
+    <%= l.text_field :building, placeholder: "Building" %>
+    <%= l.text_field :floor, placeholder: "Floor" %>
+    <%= l.text_field :room, placeholder: "Room" %>
   </div>
   <% end %>
   </div>
