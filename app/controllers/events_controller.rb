@@ -54,6 +54,10 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    if current_user
+        @person = current_user.person
+    end        
+
     #@event.location.build
     #@event.keywords.build
 

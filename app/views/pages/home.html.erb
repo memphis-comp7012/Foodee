@@ -12,14 +12,14 @@
 	<li><%= link_to 'Events I attended', events_path %></li>
 	<li><%= link_to 'Search Summary', events_path %></li>
 </ul>
+<hr>
     <% @events.each do |event| %>
     <%= link_to event.title, event %>
       <%#  <td><%= link_to 'Show', event -%><%# </td>  -%>
       <br>
      <% end %>
-<br>
+<hr>
 <ul>
-	<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 	<li><%= link_to 'Sort Events', events_path %></li>
 	<li><%= link_to 'Filter Events', events_path %></li>
 </ul>
