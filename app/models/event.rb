@@ -17,18 +17,17 @@
 
 class Event < ActiveRecord::Base
 
-	#mount_uploader :avatar, AvatarUploader
 	mount_uploader :image, ImageUploader
 
-	#validates :title, presence: true, format: { with: /\A[a-zA-Z ]+\z/, message: "no special characters and numbers can be present as event title"}
-	#validates :event_date, presence: true 
-	#validates :event_time, presence: true
-	## validates :link, :presence => { :on => :validate_link }, allow_blank: true
-	#validates :link, allow_blank: true, format: { with: /\Ahttps?:\/\/.+/i }
-	#validate :event_date_is_valid_date
-	#validate :event_time_is_valid_time
-	#validate :event_date_cannot_be_in_the_past
-	#validate :event_time_cannot_be_in_the_past
+	validates :title, presence: true, format: { with: /\A[a-zA-Z ]+\z/, message: "no special characters and numbers can be present as event title"}
+	validates :event_date, presence: true 
+	validates :event_time, presence: true
+	# validates :link, :presence => { :on => :validate_link }, allow_blank: true
+	validates :link, allow_blank: true, format: { with: /\Ahttps?:\/\/.+/i }
+	validate :event_date_is_valid_date
+	validate :event_time_is_valid_time
+	validate :event_date_cannot_be_in_the_past
+	validate :event_time_cannot_be_in_the_past
 	belongs_to :person
 	has_one :location
 	has_and_belongs_to_many :keywords

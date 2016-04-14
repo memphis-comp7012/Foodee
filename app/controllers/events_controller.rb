@@ -41,7 +41,7 @@ class EventsController < ApplicationController
     @attended_event = AttendedEvent.new
     @user = current_user
 
-      # respond_to do |format|
+    # respond_to do |format|
     #   if @attended_event.save
     #     format.html { redirect_to @event, notice: 'Attend was successfully saved.' }
     #     format.json { render :show, status: :created, location: @event }
