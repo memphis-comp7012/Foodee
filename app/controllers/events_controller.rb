@@ -32,6 +32,7 @@ class EventsController < ApplicationController
         end
     end
     
+   
   end
 
   # GET /events/1
@@ -40,7 +41,7 @@ class EventsController < ApplicationController
     @attended_event = AttendedEvent.new
     @user = current_user
 
-    # respond_to do |format|
+      # respond_to do |format|
     #   if @attended_event.save
     #     format.html { redirect_to @event, notice: 'Attend was successfully saved.' }
     #     format.json { render :show, status: :created, location: @event }
@@ -51,18 +52,15 @@ class EventsController < ApplicationController
     # end
   end
 
+
   # GET /events/new
   def new
     @event = Event.new
     @event.location = Location.new
-    if current_user
-        @person = current_user.person
-    end        
 
-    #@event.location.build
-    #@event.keywords.build
     4.times { @event.keywords << Keyword.new }
-    4.times { @event.foods << Food.new }
+    4.times { @event.foods << Food.new }  
+
   end
 
   # GET /events/1/edit
