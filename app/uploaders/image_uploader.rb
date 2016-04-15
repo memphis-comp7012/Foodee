@@ -1,5 +1,8 @@
 # encoding: utf-8
 
+
+# -------------------- Created by: Tarika Bedse --------------------
+
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
