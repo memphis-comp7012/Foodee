@@ -22,7 +22,6 @@ class Event < ActiveRecord::Base
 	validates :title, presence: true, format: { with: /\A[a-zA-Z ]+\z/, message: "no special characters and numbers can be present as event title"}
 	validates :event_date, presence: true 
 	validates :event_time, presence: true
-	# validates :link, :presence => { :on => :validate_link }, allow_blank: true
 	validates :link, allow_blank: true, format: { with: /\Ahttps?:\/\/.+/i }
 	validate :event_date_is_valid_date
 	validate :event_time_is_valid_time
