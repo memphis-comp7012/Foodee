@@ -18,7 +18,7 @@
 class Event < ActiveRecord::Base
 
 	mount_uploader :image, ImageUploader
-
+ 	
 	validates :title, presence: true, format: { with: /\A[a-zA-Z ]+\z/, message: "no special characters and numbers can be present as event title"}
 	validates :event_date, presence: true 
 	validates :event_time, presence: true
