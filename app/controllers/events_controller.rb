@@ -71,7 +71,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
+    
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -98,6 +98,7 @@ class EventsController < ApplicationController
     end
   end
 
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
@@ -116,7 +117,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :event_date, :event_time, :validity, :image, :link, location_attributes:[:id, :department, :building, :floor, :room], keyword_ids: [], food_ids: [])
+      params.require(:event).permit(:title, :description, :event_date, :event_time, :validity, :image, :link, :person_id, location_attributes:[:id, :department, :building, :floor, :room], keyword_ids: [], food_ids: [])
     end
 
     def sort_column
