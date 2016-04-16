@@ -26,7 +26,7 @@ taki1 = User.create!(email: "taki@memphis.edu", password: "Takibell0")
 burge1 = User.create!(email: "burge@memphis.edu", password: "Burgeking0")
 kyla1 = User.create!(email: "kyla@memphis.edu", password: "Kylabigh0")
 qing11 = User.create!(email: "qing1@memphis.edu", password: "Qingyull0")
-lastp1 = User.create!(email: "lastp@memphis.edu", password: "Lastpthis0")
+lastp1 = User.create!(email: "a@memphis.edu", password: "Passw0rd")
 
 
 # Comment

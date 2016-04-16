@@ -1,5 +1,8 @@
 # encoding: utf-8
 
+
+# -------------------- Created by: Tarika Bedse --------------------
+
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -21,7 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
      #{}"/images/fallback/ff.jpg"
-         ActionController::Base.helpers.asset_path("public/fallback/default.jpg")
+         ActionController::Base.helpers.asset_path("fallback/default.jpg")
    end
 
   # Process files as they are uploaded:
