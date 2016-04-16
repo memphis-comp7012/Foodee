@@ -55,7 +55,12 @@
   <% end %>
   </div>
   <div class="field">
-    <%= f.label "Change Image: (Optional)" %>    <%= f.file_field :image %>
+    <% if @event.image? %>
+      <%= f.label "Change!!!" %> <%= f.file_field :image %>
+      <%= f.label "Remove!!!" %> <%= f.file_field :remove_image %>
+    <% else %>
+      <%= f.label "Upload Image (Allowed only jpg, jpeg, gif, png image formats):" %> <%= f.file_field :image %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :link %><br>

@@ -8,7 +8,7 @@
   <strong>Invalid!!!</strong>
 <% end %>
 
-<% if @attended_event != nil  %>
+<% if @attended_event %>
   <strong>Attend</strong>
 <% end %>
 <p>
@@ -32,9 +32,10 @@
 </p>
 
 <p>
+  <% if @event.image? %>
   <strong>Image:</strong>
   <img src="<%= @event.image %>" style="width:304px;height:228px;">
-
+  <% end %>
   </p>
 
 <p>
