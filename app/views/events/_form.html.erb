@@ -11,9 +11,13 @@
       </ul>
     </div>
   <% end %>
+  <div style="position: relative;
+            align: center;
+            width  : 900px;
+            margin : 0 auto;">
   <% if @event.validity? %>
   <div>
-  Mark as Invalid
+  <%= f.label :mark_as_invalid %> <br>
    <%= f.radio_button :validity, "0" %> <%= f.label :yes %>
    <%= f.radio_button :validity, "1" %> <%= f.label :no %>
   </div>
@@ -36,11 +40,11 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :keywords %>
+    <%= f.label :keywords %><br>
     <%= f.collection_check_boxes(:keyword_ids, Keyword.all, :id, :tag) %>
   </div>
   <div class="field">
-    <%= f.label :foods %>
+    <%= f.label :foods %><br>
     <%= f.collection_check_boxes(:food_ids, Food.all, :id, :item) %>
   </div>
   <div class="field">
@@ -56,10 +60,10 @@
   </div>
   <div class="field">
     <% if @event.image? %>
-      <%= f.label "Change!!!" %> <%= f.file_field :image %>
-      <%= f.label "Remove!!!" %> <%= f.file_field :remove_image %>
+      <%= f.label "Change!!!" %><br> <%= f.file_field :image %>
+      <%= f.label "Remove!!!" %><br> <%= f.file_field :remove_image %>
     <% else %>
-      <%= f.label "Upload Image (Allowed only jpg, jpeg, gif, png image formats):" %> <%= f.file_field :image %>
+      <%= f.label "Upload Image (Allowed only jpg, jpeg, gif, png image formats):" %><br> <%= f.file_field :image %>
     <% end %>
   </div>
   <div class="field">
@@ -67,6 +71,8 @@
     <%= f.text_field :link %>
   </div>
   <div class="actions">
+    <%=link_to 'Back to Home', root_path %>
     <%= f.submit %>
   </div>
 <% end %>
+</div>

@@ -1,16 +1,18 @@
 <%# done by Sambriddhi Mainali -%>
 <p id="notice"><%= notice %></p>
-<strong><%#%= @person.first_name %> <%#%= @person.last_name %></strong>
+<strong><%= @event.person.first_name %> <%= @event.person.last_name %></strong><br>
+<% if session[:user_id] == @event.person.user_id %>
+<div style = "float:right"> 
 <%= link_to 'Edit', edit_event_path(@event) %>
-<%= link_to 'Log out', events_path %>
-
+<% end %>
+</div>
 <% if !@event.validity %>
   <strong>Invalid!!!</strong>
 <% end %>
 
-<% if @attended_event %>
-  <strong>Attend</strong>
-<% end %>
+<%# if @attended_event %>
+  <!--<strong>Attend</strong>-->
+<%# end %>
 <p>
   <strong>Event Name :</strong>
   <%= @event.title %>
@@ -91,5 +93,7 @@ Qiong: was trying to add attend function
         Then realize there is a re-direct loop
         need to be fixed
 -->
-
-<%= link_to 'Back', root_path%>
+<div style = "float:right">
+  <%= link_to 'Attend', root_path %>
+  <%= link_to 'Back', root_path%>
+</div>
