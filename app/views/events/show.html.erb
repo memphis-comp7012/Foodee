@@ -1,11 +1,11 @@
 <%# done by Sambriddhi Mainali -%>
 <p id="notice"><%= notice %></p>
 <strong><%= @event.person.first_name %> <%= @event.person.last_name %></strong><br>
-<% if session[:user_id] == @event.person.user_id %>
+<% if @user.id == @event.person.user_id %>
 <div style = "float:right"> 
 <%= link_to 'Edit', edit_event_path(@event) %>
-<% end %>
 </div>
+<% end %>
 <% if !@event.validity %>
   <strong>Invalid!!!</strong>
 <% end %>
@@ -86,11 +86,10 @@
 <%= form_for(:comment) do |f| %>
     
   <div class="field">
-    <%= f.text_area :comment, placeholder: "Add your comments here!!!" %>
+    <%= f.text_area :comment, placeholder: "Add your comments here!!!", :cols => "90", :rows => "5"%>
   </div>
   <div class="field">
-    <%= f.label :score_please %><br>
-    <%= f.number_field :score %>
+    <%= f.number_field :score, placeholder: "Score please!!!" %>
   </div>
   <div class="actions">
     <%= f.submit%>
