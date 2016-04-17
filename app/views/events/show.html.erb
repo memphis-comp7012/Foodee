@@ -13,18 +13,23 @@
 <%# if @attended_event %>
   <!--<strong>Attend</strong>-->
 <%# end %>
+<hr>
+<div style="position: relative;
+            align: center;
+            width  : 900px;
+            margin : 0 auto;">
 <p>
-  <strong>Event Name :</strong>
-  <%= @event.title %>
+  <hr>
+  <h1><%= @event.title %> </h1>
+  <hr>
 </p>
 
  <p>
-  <strong>Description:</strong>
-  <%= @event.description %>
+  <strong><%= @event.description %></strong>
  </p>
 
 <p>
-  <strong>Date: </strong>
+  <strong>Happening on: </strong>
   <%= @event.event_date %>
 </p>
 
@@ -39,20 +44,21 @@
   <img src="<%= @event.image %>" style="width:304px;height:228px;">
   <% end %>
   </p>
+<% if @event.link? %>
+  <p>
+    <strong>Link:</strong>
+    <%= @event.link %>
+  </p>
+<% end %>
 
 <p>
-  <strong>Link:</strong>
-  <%= @event.link %>
-</p>
-
-<p>
-  <strong>Food Type: </strong>
+  <strong>Foods for you: </strong>
   <% @event.foods.each do |food| %>
     <%= food.item %>
   <% end%>
 </p>
 <p> 
-  <strong>Location: </strong> 
+  <strong>Happening at: </strong> 
   <%= @event.location.department %>,
   <%= @event.location.building %>,
   <%= @event.location.floor %>
@@ -67,14 +73,6 @@
   <% end%>
 </p>
 <p>
-
- <strong>Foods: </strong>
-  <% @event.foods.each do |food| %>
-    <%= food.item %>
-  <% end%>
-  </p>
-<p>
-
  <strong>Comments: </strong>
   <% @event.comments.each do |comment| %>
    <p> Comment:
@@ -84,15 +82,21 @@
     <%= comment.score %>
 </p>
   <% end%>
-
 </p>
-
-
-<!-- <div class="actions">
-Qiong: was trying to add attend function
-        Then realize there is a re-direct loop
-        need to be fixed
--->
+<%= form_for(:comment) do |f| %>
+    
+  <div class="field">
+    <%= f.text_area :comment, placeholder: "Add your comments here!!!" %>
+  </div>
+  <div class="field">
+    <%= f.label :score_please %><br>
+    <%= f.number_field :score %>
+  </div>
+  <div class="actions">
+    <%= f.submit%>
+  </div>
+<% end %>
+</div>
 <div style = "float:right">
   <%= link_to 'Attend', root_path %>
   <%= link_to 'Back', root_path%>
