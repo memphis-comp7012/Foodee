@@ -83,18 +83,20 @@
 </p>
   <% end%>
 </p>
-<%= form_for(:comment) do |f| %>
+
+<%= form_for (@comment)  do |f| %>
     
   <div class="field">
     <%= f.text_area :comment, placeholder: "Add your comments here!!!", :cols => "90", :rows => "5"%>
   </div>
   <div class="field">
-    <%= f.number_field :score, placeholder: "Score please!!!" %>
+    <%= f.number_field :score, min: 1, max: 10, placeholder: "Score please!!!" %>
   </div>
   <div class="actions">
     <%= f.submit%>
   </div>
 <% end %>
+
 </div>
 <div style = "float:right">
   <%= link_to 'Attend', root_path %>

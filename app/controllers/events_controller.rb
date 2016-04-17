@@ -40,6 +40,7 @@ class EventsController < ApplicationController
   def show
     @attended_event = AttendedEvent.new
     @user = current_user
+    @comment = Comment.new
     # # respond_to do |format|
     #   if @attended_event.save
     #     format.html { redirect_to @event, notice: 'Attend was successfully saved.' }
