@@ -51,7 +51,6 @@ class UserTest < ActiveSupport::TestCase
         assert abc.invalid?
     end
 
-
 #--------------------------End of test cases for email attribute-----------------------------------------
 #########################################################################################################
 

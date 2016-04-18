@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
    
   validates :email, uniqueness: true, presence: true , format: { with: /\A[A-Za-z][A-Za-z0-9]*@memphis.edu\z/, message: " - Enter valid memphis.edu email address e.g. abc@memphis.edu"}, allow_blank: false
-  validates :password, presence: true, length: { minimum: 6 }, format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).{6,}\z/, message: "must be at least 6 characters and include one number and one upper case letter."}, allow_blank: false
+  validates :password, presence: true, length: { minimum: 6 }, format: { with: /\A(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*[0-9]).{6,}\z/, message: "must be at least 6 characters and include one number and one upper case letter."}, allow_blank: false
 
   has_one :person, autosave: true
   accepts_nested_attributes_for :person
