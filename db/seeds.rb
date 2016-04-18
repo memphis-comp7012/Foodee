@@ -22,7 +22,7 @@ rib = Food.create!(item: "ribs")
 sandwich = Food.create!(item: "sandwich")
 
 # User
-taki1 = User.create!(email: "taki@memphis.edu", password: "Takibell0")
+taki1 = User.create!(email: "tbell@memphis.edu", password: "Passw0rd")
 burge1 = User.create!(email: "burge@memphis.edu", password: "Burgeking0")
 kyla1 = User.create!(email: "kyla@memphis.edu", password: "Kylabigh0")
 qing11 = User.create!(email: "qing1@memphis.edu", password: "Qingyull0")
