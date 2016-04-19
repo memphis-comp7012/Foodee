@@ -1,8 +1,12 @@
-<%# created by Sambriddhi Mainali -%>
+<%# Created by Sambriddhi Mainali -%>
+
+<%# -------------------- Contributed by: Tarika Bedse -------------------- %>
+
 <div style="position: relative;
             align: center;
             width  : 200px;
             margin : 0 auto;">
+
 <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
 <%= submit_tag "Search" %>
 </div>
@@ -20,15 +24,19 @@
             align: center;
             width  : 740px;
             margin : 0 auto;">
+
     <% @events.each do |event| %>
     <%= link_to event.title, event %>
       <%#  <td><%= link_to 'Show', event -%><%# </td>  -%>
       <br>
      <% end %>
+     <%= will_paginate @events %>
 </div>
 <div style = "float:right">
 	<%= link_to 'Sort Events', events_path %><br>
 	<%= link_to 'Filter Events', events_path %><br>
 </div>
 <hr>
+
+
 
