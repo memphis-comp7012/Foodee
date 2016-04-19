@@ -127,6 +127,5 @@ class EventsController < ApplicationController
       params[:direction] || "asc"
     end
 
-
 end
 
