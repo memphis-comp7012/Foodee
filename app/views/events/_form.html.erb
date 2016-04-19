@@ -61,7 +61,8 @@
   <div class="field">
     <% if @event.image? %>
       <%= f.label "Change!!!" %><br> <%= f.file_field :image %>
-      <%= f.label "Remove!!!" %><br> <%= f.file_field :remove_image %>
+      <%= f.check_box :remove_image, value: 0 %>
+      <%= f.label :remove_image, "remove image" %>
     <% else %>
       <%= f.label "Upload Image (Allowed only jpg, jpeg, gif, png image formats):" %><br> <%= f.file_field :image %>
     <% end %>

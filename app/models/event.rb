@@ -60,10 +60,13 @@ class Event < ActiveRecord::Base
 			errors.add(:event_time, "can't be in the past")
 		end
 	end
-	# def validate_link
-	# 	url = URI.parse(:link) rescue false
-	# 	if not(url.kind_of?(URI::HTTP)|| url.kind_of?(URI::HTTPS))
-	# 		errors.add(:link, "not a valid URL")
-	# 	end
-	# end
+	def setup
+		@image_name = @image.file.filename
+		
+	end
+	def remove_image
+		@id = self[:id]
+		@image_name = self[:image]
+		File.delete("#{Rails.root}/public/uploads/event/image/#{@id}/#{@image_name}")
+    end
 end
