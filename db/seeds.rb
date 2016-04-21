@@ -81,7 +81,7 @@ event7.location = ele
  event4.keywords << key5
  event5.keywords << key3
  event6.keywords << key2 << key4
- event7.keywords << key3 << key6
+ event7.keywords << key3 << key5
 
 # Person User association
 taki1.person = taki
