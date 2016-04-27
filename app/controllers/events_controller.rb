@@ -38,10 +38,10 @@ class EventsController < ApplicationController
     end 
   end
 
+
   def search
     if params[:search]
         @events = Event.search_by_title(params[:search])
-
       else
         @events = Event.all
     end

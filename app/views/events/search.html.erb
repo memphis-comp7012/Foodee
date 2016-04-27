@@ -8,8 +8,10 @@
       <th>Title</th>
       <th>Description</th>
       <th>Event date</th>
+      <th>Event Time</th>
        </tr>
   </thead>
+
 
   <tbody>
     <% @events.each do |event| %>
@@ -17,6 +19,7 @@
         <td><%= event.title %></td>
         <td><%= event.description %></td>
         <td><%= event.event_date %></td>
+        <td><%= event.event_time %></td>
       
       </tr>
     <% end %>

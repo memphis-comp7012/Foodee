@@ -74,6 +74,8 @@ class Event < ActiveRecord::Base
   		where("title LIKE ?", "%#{search}%")   		
 	end
 
+	
+
 	def self.filter(filter)
 		where("title LIKE ?", "%#{filter}%")
 		where("event_date LIKE ?", "%#{filter}%")
