@@ -138,9 +138,5 @@ class EventsController < ApplicationController
     def sort_direction
       params[:direction] || "asc"
     end
-<<<<<<< HEAD
-=======
-
->>>>>>> 6c576de792af75bddf8069b2650c71ebeeb9e091
 end
 

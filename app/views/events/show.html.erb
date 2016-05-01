@@ -99,6 +99,8 @@
 
 </div>
 <div style = "float:right">
-  <%= link_to 'Attend', root_path %>
+  <% if @event.validity %>
+    <%= link_to 'Attend', root_path %>
+  <% end %>
   <%= link_to 'Back', root_path%>
 </div>
