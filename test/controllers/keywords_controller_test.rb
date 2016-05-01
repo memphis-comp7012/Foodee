@@ -12,9 +12,9 @@
 require 'test_helper'
 
 class KeywordsControllerTest < ActionController::TestCase
-  # setup do
-  #   @keyword = keywords(:one)
-  # end
+  setup do
+    @keyword = keywords(:pizza)
+  end
 
   # test "should get index" do
   #   get :index
@@ -27,13 +27,13 @@ class KeywordsControllerTest < ActionController::TestCase
   #   assert_response :success
   # end
 
-  # test "should create keyword" do
-  #   assert_difference('Keyword.count') do
-  #     post :create, keyword: { tag: @keyword.tag }
-  #   end
+  test "should create keyword" do
+    assert_difference('Keyword.count') do
+      post :create, keyword: { tag: @keyword.tag }
+    end
 
-  #   assert_redirected_to keyword_path(assigns(:keyword))
-  # end
+    assert_redirected_to keyword_path(assigns(:keyword))
+  end
 
   # test "should show keyword" do
   #   get :show, id: @keyword
@@ -45,16 +45,16 @@ class KeywordsControllerTest < ActionController::TestCase
   #   assert_response :success
   # end
 
-  # test "should update keyword" do
-  #   patch :update, id: @keyword, keyword: { tag: @keyword.tag }
-  #   assert_redirected_to keyword_path(assigns(:keyword))
-  # end
+  test "should update keyword" do
+    patch :update, id: @keyword, keyword: { tag: @keyword.tag }
+    assert_redirected_to keyword_path(assigns(:keyword))
+  end
 
-  # test "should destroy keyword" do
-  #   assert_difference('Keyword.count', -1) do
-  #     delete :destroy, id: @keyword
-  #   end
+  test "should destroy keyword" do
+    assert_difference('Keyword.count', -1) do
+      delete :destroy, id: @keyword
+    end
 
-  #   assert_redirected_to keywords_path
-  # end
+    assert_redirected_to keywords_path
+  end
 end

@@ -1,7 +1,7 @@
 <%# done by Sambriddhi Mainali -%>
 <p id="notice"><%= notice %></p>
 <strong><%= @event.person.first_name %> <%= @event.person.last_name %></strong><br>
-<% if @user.id == @event.person.user_id %>
+<% if @user.id == @event.person.user_id && @event.validity %>
 <div style = "float:right"> 
 <%= link_to 'Edit', edit_event_path(@event) %>
 </div>

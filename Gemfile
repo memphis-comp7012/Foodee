@@ -51,4 +51,3 @@ gem 'devise'
 gem 'carrierwave'
 
 gem 'annotate'
-
