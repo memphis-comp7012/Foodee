@@ -47,8 +47,8 @@ event2 = Event.create!(title: "Free Coffee", description: "This event serves 150
 event3 = Event.create!(title: "Free Pizza and Burgers", description: "This event serves 200 Free Pizzas and 100 Free burger", event_date: "11-10-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
 event4 = Event.create!(title: "Free Chicken", description: "This event serves 150 pounds Free Chicken. We will provide you the chicken pieces of desired weights", event_date: "6-10-2016", event_time: "15:00" ,validity: true, image: "", link: " ")
 event5 = Event.create!(title: "Free Sandwiches", description: "This event serves Free Sandwiches", event_date: "09-10-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
-event6 = Event.create!(title: "Free Food", description: "This event serves Free Food", event_date: "10-10-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
-event7 = Event.create!(title: "Food", description: "This event serves Free Food", event_date: "11-11-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
+# event6 = Event.create!(title: "Free Food", description: "This event serves Free Food", event_date: "10-10-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
+# event7 = Event.create!(title: "Food", description: "This event serves Free Food", event_date: "11-11-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
 
 # Location
 fit = Location.create!(department: "Computer Science", building: "FIT", floor: "first floor", room: "")
@@ -71,8 +71,8 @@ event2.location = smith
 event3.location = dunn
 event4.location = fit2
 event5.location = psc
-event6.location = ele
-event7.location = ele
+# event6.location = ele
+# event7.location = ele
 
 # event keyword association
  event1.keywords << key2
@@ -80,8 +80,8 @@ event7.location = ele
  event3.keywords << key2 << key4
  event4.keywords << key5
  event5.keywords << key3
- event6.keywords << key2 << key4
- event7.keywords << key3 << key5
+ # event6.keywords << key2 << key4
+ # event7.keywords << key3 << key5
 
 # Person User association
 taki1.person = taki
@@ -110,8 +110,8 @@ event2.foods << burger
 event3.foods << chicken
 event4.foods << rib
 event5.foods << sandwich
-event6.foods << burger
-event7.foods << pizza
+# event6.foods << burger
+# event7.foods << pizza
 
 # # Event Comment association
 event1.comments << C1 << C2

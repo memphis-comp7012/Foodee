@@ -58,6 +58,10 @@ class EventsController < ApplicationController
     #     format.json { render json: @event.errors, status: :unprocessable_entity }
     #   end
     # end
+    @current_time = Time.new
+    if(@event.event_time < @current_time && @event.event_date < @current_time)
+      @event = Event.update(Event.find(params[:id]), validity: false)
+    end
   end
 
   # GET /events/new
@@ -134,6 +138,5 @@ class EventsController < ApplicationController
     def sort_direction
       params[:direction] || "asc"
     end
-
 end
 
