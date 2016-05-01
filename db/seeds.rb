@@ -42,7 +42,7 @@ C9 = Comment.create!(comment: "I made the olt of connections in the event.", sco
 C10 = Comment.create!(comment: "The event started little late also they could have arranged sufficient amount of food since later they were out of food", score:6)
 
 # Event
-event1 = Event.create!(title: "Free Pizza", description: "This event serves 150 Free Pizzas", event_date: "01-05-2016", event_time: "15:00" ,validity: true, image: "", link: " ")
+event1 = Event.create!(title: "Free Pizza", description: "This event serves 150 Free Pizzas", event_date: "09-10-2016", event_time: "15:00" ,validity: true, image: "", link: " ")
 event2 = Event.create!(title: "Free Coffee", description: "This event serves 150 cups of Free Coffee", event_date: "12-10-2016", event_time: "17:00" ,validity: true, image: "", link: " ")
 event3 = Event.create!(title: "Free Pizza and Burgers", description: "This event serves 200 Free Pizzas and 100 Free burger", event_date: "11-10-2016", event_time: "11:00" ,validity: true, image: "", link: " ")
 event4 = Event.create!(title: "Free Chicken", description: "This event serves 150 pounds Free Chicken. We will provide you the chicken pieces of desired weights", event_date: "6-10-2016", event_time: "15:00" ,validity: true, image: "", link: " ")
