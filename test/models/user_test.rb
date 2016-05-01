@@ -49,6 +49,13 @@ class UserTest < ActiveSupport::TestCase
         abc.email = 'abc@gmail.com'
         assert abc.invalid?
     end
+	
+	
+  #test "email address without @memphis.edu should be invalid" do
+   #     abc = users(:abc)
+    #    abc.email = 'abc@gmail.com'
+     #   assert abc.invalid?
+    #end
 
 #--------------------------End of test cases for email attribute-----------------------------------------
 #########################################################################################################

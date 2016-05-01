@@ -30,10 +30,18 @@ class EventsController < ApplicationController
         if @attended_event == nil
           @attended_event = AttendedEvent.new
         end
-    end
-    
-   
+    end  
   end
+
+  def search
+    if params[:search]
+        @events = Event.search_by_title(params[:search])
+
+      else
+        @events = Event.all
+    end
+  end
+
 
   # GET /events/1
   # GET /events/1.json
@@ -130,5 +138,9 @@ class EventsController < ApplicationController
     def sort_direction
       params[:direction] || "asc"
     end
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6c576de792af75bddf8069b2650c71ebeeb9e091
 end
 

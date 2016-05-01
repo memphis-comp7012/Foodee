@@ -69,4 +69,9 @@ class Event < ActiveRecord::Base
 		@image_name = self[:image]
 		File.delete("#{Rails.root}/public/uploads/event/image/#{@id}/#{@image_name}")
     end
+
+    def self.search_by_title(search)
+  		where("title LIKE ?", "%#{search}%")   		
+	end
+
 end
