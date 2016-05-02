@@ -16,6 +16,12 @@ class KeywordsController < ApplicationController
   # GET /keywords.json
   def index
     @keywords = Keyword.all
+    @events = Event.all
+    if params[:filter]
+      @keywords = Keyword.filter(params[:filter])
+    else
+      @keywords = Keyword.all
+    end 
   end
 
   # GET /keywords/1

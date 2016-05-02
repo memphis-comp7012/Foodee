@@ -24,6 +24,10 @@
 		<%= text_field_tag :filter, params[:filter], placeholder: "Events Location" %>
 	<%= submit_tag "Filter" %>
 	<% end %>
+  <%= form_tag(keywords_path, :method => "get", id: "filter-form") do %>
+    <%= text_field_tag :filter, params[:filter], placeholder: "Events Keywords" %>
+  <%= submit_tag "Filter" %>
+  <% end %>
 </div>
 <div>
 	<%=link_to 'Back to Home', root_path %>
