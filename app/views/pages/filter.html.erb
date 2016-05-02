@@ -1,0 +1,30 @@
+<h1>Filter Events</h1>
+<hr>
+<div style="position: relative;
+            align: center;
+            width  : 740px;
+            margin : 0 auto;">
+
+    <% @events.each do |event| %>
+    <%= link_to event.title, event %>
+      <%#  <td><%= link_to 'Show', event -%><%# </td>  -%>
+      <br>
+     <% end %>
+</div>
+<hr>
+<div style="position: relative;
+            align: center;
+            width  : 740px;
+            margin : 0 auto;">
+	<%= form_tag(events_path, :method => "get", id: "filter-form") do %>
+		<%= text_field_tag :filter, params[:filter], placeholder: "Events Title" %>
+	<%= submit_tag "Filter" %>
+	<% end %>
+	<%= form_tag(locations_path, :method => "get", id: "filter-form") do %>
+		<%= text_field_tag :filter, params[:filter], placeholder: "Events Location" %>
+	<%= submit_tag "Filter" %>
+	<% end %>
+</div>
+<div>
+	<%=link_to 'Back to Home', root_path %>
+</div>

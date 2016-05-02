@@ -56,7 +56,7 @@ smith = Location.create!(department: "Bio Informatics", building: "Smith Hall", 
 dunn = Location.create!(department: "Computer Science", building: "Dunn Hall", floor: "third floor", room: "352")
 fit2 = Location.create!(department: "Computer Science", building: "FIT", floor: "second floor", room: "270")
 psc = Location.create!(department: "Psychology", building: "Psychology Building", floor: "first floor", room: "")
-ele = Location.create!(department: "Electric", building: "Engineering Building", floor: "first floor", room: "")
+# ele = Location.create!(department: "Electric", building: "Engineering Building", floor: "first floor", room: "")
 
 #Keyword
 key1 = Keyword.create!(tag: "coffee")

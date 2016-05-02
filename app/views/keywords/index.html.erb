@@ -13,6 +13,7 @@
   <tbody>
     <% @keywords.each do |keyword| %>
       <tr>
+        <td><%= keyword.events.ids %></td>
         <td><%= keyword.tag %></td>
         <td><%= link_to 'Show', keyword %></td>
         <td><%= link_to 'Edit', edit_keyword_path(keyword) %></td>
