@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
-<div style="position: relative;
-            align: center;
-            width  : 740px;
-            margin : 0 auto;">
-<% @keywords.each do |keyword| %>
-  <% keyword.events.ids.each do |id| %>
-    <% @events.each do |e| %>
-      <% if e.id == id %>
-        <%= link_to e.title, e %><br>
+<% if @keywords.present? %>
+  <div style="position: relative;
+              align: center;
+              width  : 740px;
+              margin : 0 auto;">
+  <% @keywords.each do |keyword| %>
+    <% keyword.events.ids.each do |id| %>
+      <% @events.each do |e| %>
+        <% if e.id == id %>
+          <%= link_to e.title, e %><br>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
+  </div>
+<% else %>
+  <p>There are no events containing the term(s) <%= params[:filter] %>.</p>
 <% end %>
-</div>
 <hr>
 <div>
   <%=link_to 'Back to Home', root_path %>
+  <%= link_to 'Back to Filter', pages_path %>
 </div>

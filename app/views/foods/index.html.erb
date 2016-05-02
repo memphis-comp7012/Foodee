@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<% if @foods.present? %>
 <div style="position: relative;
             align: center;
             width  : 740px;
@@ -13,7 +13,11 @@
   <% end %>
 <% end %>
 </div>
+<% else %>
+  <p>There are no events containing the term(s) <%= params[:filter] %>.</p>
+<% end %>
 <hr>
 <div>
   <%=link_to 'Back to Home', root_path %>
+  <%= link_to 'Back to Filter', pages_path %>
 </div>

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Events</h1>
-
+<% if @events.present? %>
 <table>
   <thead>
     <tr>
@@ -35,6 +35,8 @@
 </table>
 
 <br>
-
-<%= link_to 'New Event', new_event_path %>
-<%= link_to 'Back', root_path%>
+<% else %>
+  <p>There are no events containing the term(s) <%= params[:filter] %>.</p>
+<% end %>
+<hr>
+<%= link_to 'Back to home', root_path%>
