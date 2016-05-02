@@ -16,6 +16,7 @@ class FoodsController < ApplicationController
   # GET /foods.json
   def index
     @foods = Food.all
+    @events = Event.all
     if params[:filter]
       @foods = Food.filter(params[:filter])
     else
