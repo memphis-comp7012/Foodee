@@ -23,6 +23,34 @@
   </tbody>
 </table>
 
-<br>
+<hr>
+
+
+
+<h1>Matching Events by keywords </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Event date</th>
+      <th>Event Time</th>
+       </tr>
+  </thead>
+  <tbody>
+    <% @events_key.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+        <td><%= event.event_date %></td>
+        <td><%= event.event_time %></td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
 
 <%= link_to 'Back', root_path%>
