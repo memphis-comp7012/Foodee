@@ -26,7 +26,7 @@
 
 <hr>
 
-<h1>Matching Events by keywords </h1>
+<h1>Matching Events by Keywords </h1>
 
 <table>
   <thead>
@@ -45,6 +45,37 @@
         <td><%= event.event_date %></td>
         <td><%= event.event_time %></td>
       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
+
+<h1>Matching Events by Location </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Event date</th>
+      <th>Event Time</th>
+      <th>Event Department</th>
+      <th>Event Building</th>
+       </tr>
+  </thead>
+  <tbody>
+    <% @events_loc.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+        <td><%= event.event_date %></td>
+        <td><%= event.event_time %></td>
+        <td><%= event.location.department %></td>
+        <td><%= event.location.building %></td>
+      
+     
       </tr>
     <% end %>
   </tbody>
