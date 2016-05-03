@@ -74,6 +74,15 @@ class Event < ActiveRecord::Base
   		where("title LIKE ?", "%#{search}%")   		
 	end
 
+	def self.search_by_keyword(search)
+		@key = Keyword.find_by_tag(search)
+		if @key 
+			keyid = @key.id 
+		end
+	    joins(:keywords).where("keyword_id = ?", "#{keyid}")	    
+	end
+
+
 	def self.filter(filter)
 		where("title LIKE ?", "%#{filter}%")
 		where("event_date LIKE ?", "%#{filter}%")
