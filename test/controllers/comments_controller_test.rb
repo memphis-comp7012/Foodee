@@ -14,10 +14,18 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
+
   # setup do
   #   @comment = comments(:one)
   # end
 
+  
+  test "should create comment" do
+    @comment = comments (:tarika)
+      post :create, comment: { comment: @comment.comment, score: @comment.score }
+
+    assert_redirected_to comment_path(assigns(:comment))
+  end
   # test "should get index" do
   #   get :index
   #   assert_response :success
