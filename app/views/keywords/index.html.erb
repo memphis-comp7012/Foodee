@@ -1,27 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Keywords</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tag</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @keywords.each do |keyword| %>
-      <tr>
-        <td><%= keyword.tag %></td>
-        <td><%= link_to 'Show', keyword %></td>
-        <td><%= link_to 'Edit', edit_keyword_path(keyword) %></td>
-        <td><%= link_to 'Destroy', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% if @keywords.present? %>
+  <div style="position: relative;
+              align: center;
+              width  : 740px;
+              margin : 0 auto;">
+  <% @keywords.each do |keyword| %>
+    <% keyword.events.ids.each do |id| %>
+      <% @events.each do |e| %>
+        <% if e.id == id %>
+          <%= link_to e.title, e %><br>
+        <% end %>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Keyword', new_keyword_path %>
+  <% end %>
+  </div>
+<% else %>
+  <p>There are no events containing the term(s) <%= params[:filter] %>.</p>
+<% end %>
+<hr>
+<div>
+  <%=link_to 'Back to Home', root_path %>
+  <%= link_to 'Back to Filter', pages_path %>
+</div>

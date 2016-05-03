@@ -30,7 +30,12 @@ class EventsController < ApplicationController
         if @attended_event == nil
           @attended_event = AttendedEvent.new
         end
-    end  
+    end 
+    if params[:filter]
+      @events = Event.filter(params[:filter])
+    else
+      @events = Event.all
+    end 
   end
 
   def search
@@ -41,7 +46,6 @@ class EventsController < ApplicationController
         @events = Event.all
     end
   end
-
 
   # GET /events/1
   # GET /events/1.json

@@ -18,7 +18,11 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    if params[:filter]
+      @locations = Location.filter(params[:filter])
+    else
+      @locations = Location.all
+    end 
   end
 
   # GET /locations/1
@@ -83,6 +87,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:department, :building, :floor, :room)
+      params.require(:location).permit(:department, :building, :floor, :room, :event_id)
     end
 end

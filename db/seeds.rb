@@ -56,7 +56,7 @@ smith = Location.create!(department: "Bio Informatics", building: "Smith Hall", 
 dunn = Location.create!(department: "Computer Science", building: "Dunn Hall", floor: "third floor", room: "352")
 fit2 = Location.create!(department: "Computer Science", building: "FIT", floor: "second floor", room: "270")
 psc = Location.create!(department: "Psychology", building: "Psychology Building", floor: "first floor", room: "")
-ele = Location.create!(department: "Electric", building: "Engineering Building", floor: "first floor", room: "")
+# ele = Location.create!(department: "Electric", building: "Engineering Building", floor: "first floor", room: "")
 
 #Keyword
 key1 = Keyword.create!(tag: "coffee")
@@ -97,12 +97,6 @@ kyla.comments << C6 << C7
 qingl.comments << C3 << C4 << C5
 lastp.comments << C6 << C9 << C5 << C1
 
-# # Event keywords association
-event1.keywords << key1 << key3 << key4
-event2.keywords << key2 << key4
-event3.keywords << key1 << key4
-key1.events << event4 << event5
-key5.events << event4 << event5
 
 # # Event Food association
 event1.foods << pizza << burger

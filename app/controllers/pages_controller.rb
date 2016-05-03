@@ -10,6 +10,10 @@ class PagesController < ApplicationController
 
     	end
   	end
+  	def index
+  		@events = Event.all
+  		render :filter
+  	end
 end
 
 

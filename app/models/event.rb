@@ -28,11 +28,11 @@ class Event < ActiveRecord::Base
 	validate :event_date_cannot_be_in_the_past
 	validate :event_time_cannot_be_in_the_past
 	belongs_to :person
-	has_one :location
+	has_one :location, class_name: 'Location', foreign_key: 'event_id'
 	has_and_belongs_to_many :keywords
 	accepts_nested_attributes_for :location
 	accepts_nested_attributes_for :keywords
-	has_many :foods
+	has_and_belongs_to_many :foods
 	accepts_nested_attributes_for :foods
 	has_many :comments
 
@@ -72,6 +72,12 @@ class Event < ActiveRecord::Base
 
     def self.search_by_title(search)
   		where("title LIKE ?", "%#{search}%")   		
+	end
+
+	def self.filter(filter)
+		where("title LIKE ?", "%#{filter}%")
+		where("event_date LIKE ?", "%#{filter}%")
+		where("event_time LIKE ?", "%#{filter}%")
 	end
 
 end
