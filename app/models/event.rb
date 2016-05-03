@@ -82,6 +82,9 @@ class Event < ActiveRecord::Base
 	    joins(:keywords).where("keyword_id = ?", "#{keyid}")	    
 	end
 
+	def self.search_by_location(search)
+		joins(:location).where('department LIKE ? or building LIKE ?', "%#{search}%", "%#{search}%")
+	end
 
 	def self.filter(filter)
 		where("title LIKE ?", "%#{filter}%")
