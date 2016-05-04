@@ -35,18 +35,56 @@ class AttendedEventsController < ApplicationController
   # POST /attended_events
   # POST /attended_events.json
   def create
-    @attended_event = AttendedEvent.new(attended_event_params)
+    @this_attened_event = AttendedEvent.new
 
-    respond_to do |format|
-      if @attended_event.save
-        format.html { redirect_to @attended_event, notice: 'Attended event was successfully created.' }
-        format.json { render :show, status: :created, location: @attended_event }
-      else
-        format.html { render :new }
-        format.json { render json: @attended_event.errors, status: :unprocessable_entity }
+    if (params[:user_id] != nil && params[:event_id] != nil)
+      # @this_attened_event.attributes = {:user_id => params[:user_id], :event_id => params[:event_id]}
+      # @this_attened_event = AttendedEvent.new(:user_id => params[:user_id], :event_id => params[:event_id])
+      @this_attened_event.user_id = params[:user_id]
+      @this_attened_event.event_id = params[:event_id]
+      @attendedevent = AttendedEvent.find_by_user_id(params[:user_id])
+      @event = Event.find_by_id(params[:event_id])
+
+      respond_to do |format|
+          if @attendedevent == nil
+            @this_attened_event.save
+            format.html { redirect_to @event }
+            format.json { render :show, status: :created, location: @event }
+          else
+            format.html { redirect_to @event }
+            format.json { render @event, status: :ok, location: @event }
+        end
       end
     end
   end
+
+  # save attended information
+  def attend
+
+    @this_attened_event = AttendedEvent.new   
+    if (params[:user_id] != nil && params[:event_id] != nil)
+      # @this_attened_event.attributes = {:user_id => params[:user_id], :event_id => params[:event_id]}
+      # @this_attened_event = AttendedEvent.new(:user_id => params[:user_id], :event_id => params[:event_id])
+      @this_attened_event.user_id = params[:user_id]
+      @this_attened_event.event_id = params[:event_id]
+      @attendedevent = AttendedEvent.find_by_user_id(params[:user_id])
+      @event = Event.find_by_id(params[:event_id])
+    
+      respond_to do |format|
+         if @attendedevent == nil
+            @this_attened_event.save
+            format.html { redirect_to @event }
+            format.json { render @event, status: :ok, location: @event }
+         else
+          format.html { render :show }
+          format.json { render json: @this_attened_event.errors, status: :unprocessable_entity }
+         end
+      end
+    end 
+ end
+  helper_method :attend
+
+
 
   # PATCH/PUT /attended_events/1
   # PATCH/PUT /attended_events/1.json

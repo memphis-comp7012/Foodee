@@ -48,6 +48,9 @@ group :development do
   gem 'spring'
 end
 
+gem 'jquery-datatables-rails', '~> 3.3.0'
+
+
 gem 'devise' 
 gem 'carrierwave'
 gem 'will_paginate', '~> 3.0.6'

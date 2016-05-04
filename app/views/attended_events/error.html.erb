@@ -1,0 +1,22 @@
+<% if @attended_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attended_event.errors.count, "error") %> prohibited this attended_event from being saved:</h2>
+
+      <ul>
+      <% @attended_event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+ <%#  form_tag(attended_events_path, :method => "post") do %>
+      <%#  text_field_tag :attend, :method => "attend", params[:event_id] => @event.id, params[:user_id] => @person.user_id %>
+      <%# submit_tag "Attend" %>
+      <%#  end %>
+
+
+      
+    <% # @attended_event.user_id = @person.user_id %>
+    <% # @attended_event.event_id = @event.id %>

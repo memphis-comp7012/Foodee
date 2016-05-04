@@ -6,6 +6,24 @@
 <%= link_to 'Edit', edit_event_path(@event) %>
 </div>
 <% end %>
+
+<%# show attend %>
+<% if @attended_event != nil %>
+  <% # @attended_events.each do |ae| %>
+    <% if @attended_event.event_id == @event.id %>
+      <div style = "float:left"> 
+        <h2>attended</h2>
+      </div>
+    <% end %>
+  <% # end %>
+<% else %>
+  <% if @event.validity %>
+    <div style = "float:left">
+      <%= button_to "attend", :controller => "attended_events", :method => "attend", :event_id => @event.id, :user_id => @person.user_id %>
+    </div>
+  <% end %>
+<% end %>
+
 <% if !@event.validity %>
   <strong>Invalid!!!</strong>
 <% end %>
@@ -35,7 +53,7 @@
 
 <p>
   <strong>Time: </strong>
-  <%= @event.event_time %>
+  <%= @event.event_time.strftime("%I:%M%p")  %>
 </p>
 
 <p>
@@ -99,8 +117,5 @@
 
 </div>
 <div style = "float:right">
-  <% if @event.validity %>
-    <%= link_to 'Attend', root_path %>
-  <% end %>
   <%= link_to 'Back', root_path%>
 </div>

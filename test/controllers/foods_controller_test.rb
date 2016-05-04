@@ -12,9 +12,9 @@
 require 'test_helper'
 
 class FoodsControllerTest < ActionController::TestCase
-  # setup do
-  #   @food = foods(:one)
-  # end
+  setup do
+    @food = foods(:one)
+  end
 
   # test "should get index" do
   #   get :index

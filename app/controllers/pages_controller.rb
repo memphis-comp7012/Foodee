@@ -1,3 +1,7 @@
+
+#def index
+#end
+
 class PagesController < ApplicationController
 
 	before_action :authenticate_user!, only: [:home]
@@ -15,3 +19,4 @@ class PagesController < ApplicationController
   		render :filter
   	end
 end
+
