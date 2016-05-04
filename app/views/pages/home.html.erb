@@ -45,8 +45,8 @@
     </nav>
 
 <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+    <div class="row">
+        <div class="col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><%= link_to 'Publish Event', new_event_path%></li>
             <li><%= link_to 'Events I attended', events_path %></li>
@@ -54,50 +54,22 @@
             <li><%= link_to 'Filter Events', pages_path %></li>            
           </ul>
         </div>
- </div>
-  </div>
+      
 
-<h1><i>Welcome <%= @person.first_name %> <%= @person.last_name %>!!! </h1></i>
+<h1><i>Welcome <%= @person.first_name %> <%= @person.last_name %>!!!</i> </h1>
 
-<br><br>
+      <div class="col-md-10">
+      <% @events.each do |event| %>
+            <div class="col-md-5">
+              <img class="img-thumbnail" src="<%= event.image %>" alt="Food img" width="200" height="200">
+              <h2><%= link_to event.title, event %></h2>
+              <p><p><%= event.description %> This event is on <%= event.event_date.strftime("%B, %d %Y") %> at <%= event.event_time.strftime("%I:%M%p") %> </p></p>                 
+              <p><%= link_to "View details &raquo;".html_safe, event, class: "btn btn-default" %></p>
+            </div>
 
-<div class="container marketing" style="margin-left: 300px">
- <div class="row">
- <% @events.each do |event| %>
-           
-        <div class="col-lg-4">
-          <img class="img-thumbnail" src="<%= event.image %>" alt="Food img" width="240" height="240">
-          <h2><%= link_to event.title, event %></h2>
-          <p><p><%= event.description %> This event is on <%= event.event_date.strftime("%B, %d %Y") %> at <%= event.event_time.strftime("%I:%M%p") %> </p></p>                 
-          <p><%= link_to "View details &raquo;".html_safe, event, class: "btn btn-default" %></p>
-        </div>
-
- <% end %>
-   </div>
-   </div>
-
-<<<<<<< HEAD
-</div>
-<h1> Welcome 
-    <%= @person.first_name %> <%= @person.last_name %>!!!
-
-  </h1>
-<div style = "float: left">
-	<%= link_to 'Publish Event', new_event_path %><br>
-	<%= link_to 'Events I attended', history_path %><br>
-</div>
-<hr>
-<div style="position: relative;
-            align: center;
-            width  : 740px;
-            margin : 0 auto;">
-
-    <% @events.each do |event| %>
-    <%= link_to event.title, event %>
-      <%#  <td><%= link_to 'Show', event -%><%# </td>  -%>
-      <br>
-     <% end %>
-     <%= will_paginate @events %>
+      <% end %>
+      </div>
+      </div>
 </div>
 
 <div class="apple_pagination">
@@ -106,9 +78,6 @@
       </div>
       <%= will_paginate @events, :container => false %>
     </div>
-
-
-  
 
   
 
