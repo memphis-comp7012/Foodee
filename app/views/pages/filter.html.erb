@@ -21,7 +21,7 @@
 	<%= submit_tag "Filter" %>
 	<% end %>
 	<%= form_tag(locations_path, :method => "get", id: "filter-form") do %>
-		<%= text_field_tag :filter, params[:filter], placeholder: "filter events with respect to location", size: 100 %>
+		<%= text_field_tag :filter, params[:filter], placeholder: "filter events with respect to buidling of location", size: 100 %>
 	<%= submit_tag "Filter" %>
 	<% end %>
   <%= form_tag(foods_path, :method => "get", id: "filter-form") do %>

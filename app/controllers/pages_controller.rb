@@ -15,8 +15,3 @@ class PagesController < ApplicationController
   		render :filter
   	end
 end
-
-
-
-#def index
-#end
