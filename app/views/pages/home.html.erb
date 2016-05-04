@@ -32,10 +32,10 @@
                   <% end %>                                        
 
                   <li >
-<%= form_tag(search_path, :method => "get", id: "search-form", class: "navbar-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Events", class: "form-control" %>
-<%= submit_tag "Search Events", class: "btn btn-sm btn-primary"%>
-<% end %></li>
+                  <%= form_tag(search_path, :method => "get", id: "search-form", class: "navbar-form") do %>
+                  <%= text_field_tag :search, params[:search], placeholder: "Search Events", class: "form-control" %>
+                  <%= submit_tag "Search Events", class: "btn btn-sm btn-primary"%>
+                  <% end %></li>
 
           </ul>
 
@@ -50,7 +50,7 @@
             <li><%= link_to 'Publish Event', new_event_path%></li>
             <li><%= link_to 'Events I attended', events_path %></li>
             <li><%= link_to 'Sort Events', events_path %></li>
-            <li><%= link_to 'Filter Events', pages_path %></li>
+            <li><%= link_to 'Filter Events', pages_path %></li>            
           </ul>
         </div>
  </div>
@@ -75,9 +75,6 @@
                  
           <p><%= link_to "View details &raquo;".html_safe, event, class: "btn btn-default" %></p>
         </div>
-    
-
-
 
  <% end %>
    </div>
