@@ -18,7 +18,7 @@ Please run `rake db:setup` and `rake test` to examine if the test cases are runn
 
 [Demo Video Offset - Iteration 1](https://github.com/memphis-comp7012/Foodee/blob/master/misc/Demo%20Video%20-%20Iteration%201/VIdeo%20Offset%20%20-%20DemoVideo%20-%20Milestone%201%20-%20Foodee.pdf)
 
-[Demo Video Offset - Iteration 2](https://github.com/memphis-comp7012/Foodee/blob/master/misc/Demo%20Video%20-%20Iteration%202/VIdeo%20Offset%20%20-%20DemoVideo%20-%20Milestone%202%20-%20Foodee.docx)
+[Demo Video Offset - Iteration 2](https://github.com/memphis-comp7012/Foodee/blob/master/misc/Demo%20Video%20-%20Iteration%202/VIdeo%20Offset%20%20-%20DemoVideo%20-%20Milestone%202%20-%20Foodee.pdf)
 
 
 
