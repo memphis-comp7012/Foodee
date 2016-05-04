@@ -115,36 +115,25 @@
       <%= will_paginate @events_loc, :container => false %>
     </div>
 
+<div class="container marketing" style="margin-left: 300px">
+<h1>Found <%=@events_foo.count%> events matching food "<%= params[:search]%>" </h1>
+ <div class="row">
+ <% @events_foo.each do |event| %>
+           
+        <div class="col-lg-4">
+          <img class="img-thumbnail" src="<%= event.image %>" alt="Food img" width="240" height="240">
+          <h2><%= link_to event.title, event %></h2>
+          <p><p><%= event.description %> This event is on <%= event.event_date.strftime("%B, %d %Y") %> at <%= event.event_time.strftime("%I:%M%p") %> </p></p>                 
+          <p><%= link_to "View details &raquo;".html_safe, event, class: "btn btn-default" %></p>
+        </div>
 
+ <% end %>
+   </div>
+   </div>
 
-<h1>Matching Events by Food </h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Event date</th>
-      <th>Event Time</th>
-      <th>Event Department</th>
-      <th>Event Building</th>
-       </tr>
-  </thead>
-  <tbody>
-    <% @events_foo.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= event.event_date %></td>
-        <td><%= event.event_time %></td>
-        <td><%= event.location.department %></td>
-        <td><%= event.location.building %></td>
-      
-     
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<%= link_to 'Back', root_path%>
+<div class="apple_pagination">
+      <div clas="page_info">
+        <%= page_entries_info @events_foo %>
+      </div>
+      <%= will_paginate @events_foo, :container => false %>
+    </div>
