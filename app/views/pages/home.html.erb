@@ -2,44 +2,95 @@
 
 <%# -------------------- Contributed by: Tarika Bedse -------------------- %>
 
-<div style="position: relative;
-            align: center;
-            width  : 200px;
-            margin : 0 auto;">
-
-<%= form_tag(search_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Events" %>
-<%= submit_tag "Search Events" %>
+<% content_for :head do %>
+   <%= stylesheet_link_tag 'dashboard' %>
+   <%= stylesheet_link_tag 'theme' %>
+   <%= stylesheet_link_tag 'pagination' %>
+   <%= stylesheet_link_tag 'carousel' %>
 <% end %>
 
+ <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Foodee</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li ><%= link_to 'Home', root_path, class: "active" %></li>
+                   <% if user_signed_in? %>
+                      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                  <% else %>
+                      <li><%= link_to "Sign In", new_user_session_path %></li>
+                      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                  <% end %>                                        
 
-</div>
-<h1> Welcome 
-    <%= @person.first_name %> <%= @person.last_name %>!!!
+                  <li >
+<%= form_tag(search_path, :method => "get", id: "search-form", class: "navbar-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Events", class: "form-control" %>
+<%= submit_tag "Search Events", class: "btn btn-sm btn-primary"%>
+<% end %></li>
 
-  </h1>
-<div style = "float: left">
-	<%= link_to 'Publish Event', new_event_path %><br>
-	<%= link_to 'Events I attended', events_path %><br>
-</div>
-<hr>
-<div style="position: relative;
-            align: center;
-            width  : 740px;
-            margin : 0 auto;">
+          </ul>
 
-    <% @events.each do |event| %>
-    <%= link_to event.title, event %>
-      <%#  <td><%= link_to 'Show', event -%><%# </td>  -%>
-      <br>
-     <% end %>
-     <%= will_paginate @events %>
-</div>
-<div style = "float:right">
-	<%= link_to 'Sort Events', events_path %><br>
-	<%= link_to 'Filter Events', pages_path %><br>
-</div>
-<hr>
+        </div>
+      </div>
+    </nav>
+
+<div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><%= link_to 'Publish Event', new_event_path%></li>
+            <li><%= link_to 'Events I attended', events_path %></li>
+            <li><%= link_to 'Sort Events', events_path %></li>
+            <li><%= link_to 'Filter Events', pages_path %></li>
+          </ul>
+        </div>
+ </div>
+  </div>
+
+<h1> Welcome <%= @person.first_name %> <%= @person.last_name %>!!! </h1>
+
+<br><br>
+
+<div class="container marketing" style="margin-left: 300px">
+ <div class="row">
+ <% @events.each do |event| %>
 
 
+      <!-- Three columns of text below the carousel -->
+     
+        <div class="col-lg-4">
+
+          <img class="img-thumbnail" src="<%= event.image %>" alt="Food img" width="240" height="240">
+          <h2><%= link_to event.title, event %></h2>
+          <p><%= event.description %></p>
+                 
+          <p><%= link_to "View details &raquo;".html_safe, event, class: "btn btn-default" %></p>
+        </div>
+    
+
+
+
+ <% end %>
+   </div>
+   </div><!-- /.row -->
+
+<div class="apple_pagination">
+      <div clas="page_info">
+        <%= page_entries_info @events %>
+      </div>
+      <%= will_paginate @events, :container => false %>
+    </div>
+
+  
+
+  
 

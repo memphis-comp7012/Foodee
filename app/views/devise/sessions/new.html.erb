@@ -1,15 +1,16 @@
 
 <%# -------------------- Created by: Tarika Bedse -------------------- %>
 
-<% content_for :header do -%>
-  <%= stylesheet_link_tag 'signin' %>
-<% end -%>
+<% content_for :head do %>
+   <%= stylesheet_link_tag 'cover' %>
+<% end %>
+  
 
 <div class="container">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
   
-  <h2 class="form-signin-heading">Please log in</h2>
+  <h2 class="form-signin-heading">Please sign in</h2>
 
     <%= f.label :email, :class=>'sr-only' %>
     <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email address" %>
@@ -27,6 +28,11 @@
   
 
 <%= render "devise/shared/links" %>
+
+<br><br>
+<h4 class="form-signin-heading">Don't have account?</h4>
+<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-primary btn-block" %>
+
   </div>
 <% end %>
 

@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
 	def home
     	#@events = Event.all
-    	@events = Event.all.paginate(:page => params[:page], :per_page => 2)
+    	@events = Event.where.not(validity: false).paginate(:page => params[:page], :per_page => 2)
     	if current_user
     		@person = current_user.person
 
