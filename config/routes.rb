@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :foods
   resources :people
   get 'events/search' , to: 'events#search', as: 'search'
+  get 'events/history' , to: 'events#history', as: 'history'
   resources :events
   resources :locations
   resources :keywords

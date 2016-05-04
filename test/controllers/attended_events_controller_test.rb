@@ -12,9 +12,9 @@
 require 'test_helper'
 
 class AttendedEventsControllerTest < ActionController::TestCase
-  # setup do
-  #   @attended_event = attended_events(:one)
-  # end
+  setup do
+    @attended_event = attended_events(:one)
+  end
 
   # test "should get index" do
   #   get :index

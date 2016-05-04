@@ -16,4 +16,5 @@
 #
 
 module EventsHelper
+
 end

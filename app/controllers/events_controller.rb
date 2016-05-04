@@ -21,22 +21,20 @@ class EventsController < ApplicationController
 
   # GET /events
   # GET /events.json
-  helper_method :sort_column, :sort_direction
   def index
-    @events = Event.order(sort_column + ' ' + sort_direction)
+    @events = Event.all
     if current_user
         @user = current_user
         @attended_event = AttendedEvent.find_by_user_id(current_user.id)
-        if @attended_event == nil
-          @attended_event = AttendedEvent.new
-        end
     end 
+
     if params[:filter]
       @events = Event.filter(params[:filter])
     else
       @events = Event.all
     end 
   end
+
 
   def search
     if params[:search]
@@ -50,8 +48,9 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @attended_event = AttendedEvent.new
     @user = current_user
+    @person = Person.find_by_user_id(current_user.id)
+    @attended_event = AttendedEvent.find_by_user_id(current_user.id)
     @comment = Comment.new
     # # respond_to do |format|
     #   if @attended_event.save
@@ -67,6 +66,8 @@ class EventsController < ApplicationController
       @event = Event.update(Event.find(params[:id]), validity: false)
     end
   end
+
+
 
   # GET /events/new
   def new
@@ -114,6 +115,18 @@ class EventsController < ApplicationController
   end
 
 
+  def history
+      @user = current_user
+      @attended_event = AttendedEvent.find_by_user_id(@user.id)
+      @events = Event.all
+
+      respond_to do |format|
+        format.html { render :template => 'events/history' }
+        format.json { render :history, status: :ok, location: @event }
+      end
+  end
+
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
@@ -129,18 +142,14 @@ class EventsController < ApplicationController
     def set_event
       @event = Event.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:title, :description, :event_date, :event_time, :validity, :image, :link, :person_id, location_attributes:[:id, :department, :building, :floor, :room], keyword_ids: [], food_ids: [])
     end
 
-    def sort_column
-      params[:sort] || "event_time"
-    end
-  
-    def sort_direction
-      params[:direction] || "asc"
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def attended_event_params
+      params.require(:attended_event).permit(:user_id, :event_id)
     end
 end
 
