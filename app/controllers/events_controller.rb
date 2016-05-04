@@ -22,6 +22,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   helper_method :sort_column, :sort_direction
+  
   def index
     @events = Event.order(sort_column + ' ' + sort_direction)
     if current_user

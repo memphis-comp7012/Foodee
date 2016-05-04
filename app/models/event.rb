@@ -87,9 +87,8 @@ class Event < ActiveRecord::Base
 	end
 
 	def self.filter(filter)
-		where("title LIKE ?", "%#{filter}%")
-		where("event_date LIKE ?", "%#{filter}%")
-		where("event_time LIKE ?", "%#{filter}%")
+		where("title LIKE ? or event_date LIKE ? or event_time LIKE?", "%#{filter}%", "%#{filter}%", "%#{filter}%")
+		
 	end
 
 end
