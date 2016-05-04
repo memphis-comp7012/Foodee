@@ -41,10 +41,10 @@ class EventsController < ApplicationController
 
   def search
     if params[:search]
-        @events = Event.search_by_title(params[:search])
-        @events_key = Event.search_by_keyword(params[:search])
-        @events_loc = Event.search_by_location(params[:search])
-        @events_foo = Event.search_by_food(params[:search])
+        @events = Event.search_by_title(params[:search]).paginate(:page => params[:page], :per_page => 2)
+        @events_key = Event.search_by_keyword(params[:search]).paginate(:page => params[:page], :per_page => 2)
+        @events_loc = Event.search_by_location(params[:search]).paginate(:page => params[:page], :per_page => 2)
+        @events_foo = Event.search_by_food(params[:search]).paginate(:page => params[:page], :per_page => 2)
 
       else
         @events = Event.all

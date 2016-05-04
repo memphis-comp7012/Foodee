@@ -1,6 +1,7 @@
 <%# Created by Sambriddhi Mainali -%>
 
 <%# -------------------- Contributed by: Tarika Bedse -------------------- %>
+<%# -------------------- Design by: Tarika Bedse -------------------- %>
 
 <% content_for :head do %>
    <%= stylesheet_link_tag 'dashboard' %>
@@ -56,29 +57,24 @@
  </div>
   </div>
 
-<h1> Welcome <%= @person.first_name %> <%= @person.last_name %>!!! </h1>
+<h1><i>Welcome <%= @person.first_name %> <%= @person.last_name %>!!! </h1></i>
 
 <br><br>
 
 <div class="container marketing" style="margin-left: 300px">
  <div class="row">
  <% @events.each do |event| %>
-
-
-      <!-- Three columns of text below the carousel -->
-     
+           
         <div class="col-lg-4">
-
           <img class="img-thumbnail" src="<%= event.image %>" alt="Food img" width="240" height="240">
           <h2><%= link_to event.title, event %></h2>
-          <p><%= event.description %></p>
-                 
+          <p><p><%= event.description %> This event is on <%= event.event_date.strftime("%B, %d %Y") %> at <%= event.event_time.strftime("%I:%M%p") %> </p></p>                 
           <p><%= link_to "View details &raquo;".html_safe, event, class: "btn btn-default" %></p>
         </div>
 
  <% end %>
    </div>
-   </div><!-- /.row -->
+   </div>
 
 <div class="apple_pagination">
       <div clas="page_info">
