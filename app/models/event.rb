@@ -71,7 +71,7 @@ class Event < ActiveRecord::Base
     end
 
     def self.search_by_title(search)
-  		where("title LIKE ?", "%#{search}%")   		
+  		where("title LIKE ? AND validity != ?", "%#{search}%",false)   		
 	end
 
 	def self.search_by_keyword(search)
@@ -79,11 +79,19 @@ class Event < ActiveRecord::Base
 		if @key 
 			keyid = @key.id 
 		end
-	    joins(:keywords).where("keyword_id = ?", "#{keyid}")	    
+	    joins(:keywords).where("keyword_id = ? AND validity != ?", "#{keyid}",false)	    
+	end
+
+	def self.search_by_food(search)
+		@foo = Food.find_by_item(search)
+		if @foo 
+			fooid = @foo.id 
+		end
+	    joins(:foods).where("food_id = ? AND validity != ?", "#{fooid}",false)	    
 	end
 
 	def self.search_by_location(search)
-		joins(:location).where('department LIKE ? or building LIKE ?', "%#{search}%", "%#{search}%")
+		joins(:location).where('department LIKE ? or building LIKE ? AND validity != ?', "%#{search}%", "%#{search}%",false)
 	end
 
 	def self.filter(filter)

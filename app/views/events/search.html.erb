@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <h1>Matching Events by event title</h1>
 
 <table>
@@ -82,5 +83,36 @@
 </table>
 
 <hr>
+
+
+<h1>Matching Events by Food </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Event date</th>
+      <th>Event Time</th>
+      <th>Event Department</th>
+      <th>Event Building</th>
+       </tr>
+  </thead>
+  <tbody>
+    <% @events_foo.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+        <td><%= event.event_date %></td>
+        <td><%= event.event_time %></td>
+        <td><%= event.location.department %></td>
+        <td><%= event.location.building %></td>
+      
+     
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
 <%= link_to 'Back', root_path%>

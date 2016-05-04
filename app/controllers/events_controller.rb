@@ -44,6 +44,7 @@ class EventsController < ApplicationController
         @events = Event.search_by_title(params[:search])
         @events_key = Event.search_by_keyword(params[:search])
         @events_loc = Event.search_by_location(params[:search])
+        @events_foo = Event.search_by_food(params[:search])
 
       else
         @events = Event.all
