@@ -105,9 +105,10 @@
 </p>
 
 
+<% if @attended_event != nil %>
 <% if @attended_event.event_id == @event.id %>
 <%= form_for (@comment)  do |f| %>
-    
+
   <div class="field">
   <%= f.hidden_field :person_id, :value => current_user.person.id %>
   <%= f.hidden_field :event_id, :value => @event.id %>
@@ -119,6 +120,7 @@
   <div class="actions">
     <%= f.submit "Comment this event" , class: "btn btn-md btn-primary"%>
   </div>
+<% end %>
 <% end %>
 <% end %>
 
