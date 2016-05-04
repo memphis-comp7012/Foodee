@@ -11,7 +11,7 @@ taki = Person.create!(first_name: "taki", last_name: "bell")
 burge = Person.create!(first_name: "burge", last_name: "king")
 kyla = Person.create!(first_name: "kyla", last_name: "bigh")
 qingl = Person.create!(first_name: "qingl", last_name: "yull")
-lastp = Person.create!(first_name: "lastp", last_name: "this")
+lastp = Person.create!(first_name: "John", last_name: "Doee")
 
 
 # Food
