@@ -1,3 +1,61 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <title>Foodee</title>
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'dashboard' %>
+  <%= yield :head %>
+</head>
+<body>
+
+<% if user_signed_in? %>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Foodee</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li ><%= link_to 'Home', root_path, class: "active" %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                                                                                           
+                  <li >
+                  <%= form_tag(search_path, :method => "get", id: "search-form", class: "navbar-form") do %>
+                  <%= text_field_tag :search, params[:search], placeholder: "Search Events", class: "form-control" %>
+                  <%= submit_tag "Search Events", class: "btn btn-sm btn-primary"%>
+                  <% end %></li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                   <li><h3><span class="label label-default">You are logged in as : <%= current_user.person.first_name %> <%= current_user.person.last_name %></span></h3></li>
+
+          </ul>
+
+
+        </div>
+      </div>
+    </nav>
+<% end %>    
+
+  <%= yield %>   
+
+</body>
+</html>
+=======
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,3 +72,4 @@
 
 </body>
 </html>
+>>>>>>> 33b72103f3672372ab9da51bd62bba5fa0f97d5d
