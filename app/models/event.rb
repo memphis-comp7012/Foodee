@@ -1,20 +1,3 @@
-# == Schema Information
-#
-# Table name: events
-#
-#  id          :integer          not null, primary key
-#  title       :string
-#  description :text
-#  event_date  :date
-#  event_time  :time
-#  validity    :boolean
-#  image       :string
-#  link        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  person_id   :integer
-#
-
 class Event < ActiveRecord::Base
 	mount_uploader :image, ImageUploader
  	attr_accessor :remove_image
@@ -71,13 +54,32 @@ class Event < ActiveRecord::Base
     end
 
     def self.search_by_title(search)
-  		where("title LIKE ?", "%#{search}%")   		
+  		where("title LIKE ? AND validity != ?", "%#{search}%",false)   		
+	end
+
+	def self.search_by_keyword(search)
+		@key = Keyword.find_by_tag(search)
+		if @key 
+			keyid = @key.id 
+		end
+	    joins(:keywords).where("keyword_id = ? AND validity != ?", "#{keyid}",false)	    
+	end
+
+	def self.search_by_food(search)
+		@foo = Food.find_by_item(search)
+		if @foo 
+			fooid = @foo.id 
+		end
+	    joins(:foods).where("food_id = ? AND validity != ?", "#{fooid}",false)	    
+	end
+
+	def self.search_by_location(search)
+		joins(:location).where('department LIKE ? or building LIKE ? AND validity != ?', "%#{search}%", "%#{search}%",false)
 	end
 
 	def self.filter(filter)
-		where("title LIKE ?", "%#{filter}%")
-		where("event_date LIKE ?", "%#{filter}%")
-		where("event_time LIKE ?", "%#{filter}%")
+		where("title LIKE ? or event_date LIKE ? or event_time LIKE?", "%#{filter}%", "%#{filter}%", "%#{filter}%")
+		
 	end
 
 end

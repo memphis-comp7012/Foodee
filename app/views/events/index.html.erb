@@ -20,7 +20,12 @@
         <td><%= event.description %></td>
         <td><%= event.event_date %></td>
         <td><%= event.event_time.strftime("%I:%M%p") %></td>
-        <td><%= event.validity %></td>
+        <td><% if event.validity? %>
+                <strong>Valid</strong>
+              <% else %>
+                <strong>Invalid</strong>
+              <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

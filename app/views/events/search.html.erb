@@ -1,28 +1,139 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Matching Events by event title</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Event date</th>
-       </tr>
-  </thead>
+<%# -------------------- Created by: Tarika Bedse -------------------- %>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= event.event_date %></td>
-      
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<% content_for :head do %>
+   <%= stylesheet_link_tag 'dashboard' %>
+   <%= stylesheet_link_tag 'pagination' %>
+<% end %>
 
-<%= link_to 'Back', root_path%>
+ <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Foodee</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li ><%= link_to 'Home', root_path, class: "active" %></li>
+                   <% if user_signed_in? %>
+                      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                  <% else %>
+                      <li><%= link_to "Sign In", new_user_session_path %></li>
+                      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                  <% end %>                                        
+
+                  <li >
+                  <%= form_tag(search_path, :method => "get", id: "search-form", class: "navbar-form") do %>
+                  <%= text_field_tag :search, params[:search], placeholder: "Search Events", class: "form-control" %>
+                  <%= submit_tag "Search Events", class: "btn btn-sm btn-primary"%>
+                  <% end %></li>
+
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+
+
+<div class="container marketing" style="margin-left: 300px">
+<h1>Found <%=@events.count%> events matching title "<%= params[:search]%>" </h1>
+ <div class="row">
+ <% @events.each do |event| %>
+           
+        <div class="col-lg-4">
+          <img class="img-thumbnail" src="<%= event.image %>" alt="Food img" width="240" height="240">
+          <h2><%= link_to event.title, event %></h2>
+          <p><p><%= event.description %> This event is on <%= event.event_date.strftime("%B, %d %Y") %> at <%= event.event_time.strftime("%I:%M%p") %> </p></p>                 
+          <p><%= link_to "View details &raquo;".html_safe, event, class: "btn btn-default" %></p>
+        </div>
+
+ <% end %>
+   </div>
+   </div>
+
+<div class="apple_pagination">
+      <div clas="page_info">
+        <%= page_entries_info @events %>
+      </div>
+      <%= will_paginate @events, :container => false %>
+    </div>
+
+
+<div class="container marketing" style="margin-left: 300px">
+<h1>Found <%=@events_key.count%> events matching keyword "<%= params[:search]%>" </h1>
+ <div class="row">
+ <% @events_key.each do |event| %>
+           
+        <div class="col-lg-4">
+          <img class="img-thumbnail" src="<%= event.image %>" alt="Food img" width="240" height="240">
+          <h2><%= link_to event.title, event %></h2>
+          <p><p><%= event.description %> This event is on <%= event.event_date.strftime("%B, %d %Y") %> at <%= event.event_time.strftime("%I:%M%p") %> </p></p>                 
+          <p><%= link_to "View details &raquo;".html_safe, event, class: "btn btn-default" %></p>
+        </div>
+
+ <% end %>
+   </div>
+   </div>
+
+<div class="apple_pagination">
+      <div clas="page_info">
+        <%= page_entries_info @events_key %>
+      </div>
+      <%= will_paginate @events_key, :container => false %>
+    </div>
+
+
+<div class="container marketing" style="margin-left: 300px">
+<h1>Found <%=@events_loc.count%> events matching location "<%= params[:search]%>" </h1>
+ <div class="row">
+ <% @events_loc.each do |event| %>
+           
+        <div class="col-lg-4">
+          <img class="img-thumbnail" src="<%= event.image %>" alt="Food img" width="240" height="240">
+          <h2><%= link_to event.title, event %></h2>
+          <p><p><%= event.description %> This event is on <%= event.event_date.strftime("%B, %d %Y") %> at <%= event.event_time.strftime("%I:%M%p") %> </p></p>                 
+          <p><%= link_to "View details &raquo;".html_safe, event, class: "btn btn-default" %></p>
+        </div>
+
+ <% end %>
+   </div>
+   </div>
+
+<div class="apple_pagination">
+      <div clas="page_info">
+        <%= page_entries_info @events_loc %>
+      </div>
+      <%= will_paginate @events_loc, :container => false %>
+    </div>
+
+<div class="container marketing" style="margin-left: 300px">
+<h1>Found <%=@events_foo.count%> events matching food "<%= params[:search]%>" </h1>
+ <div class="row">
+ <% @events_foo.each do |event| %>
+           
+        <div class="col-lg-4">
+          <img class="img-thumbnail" src="<%= event.image %>" alt="Food img" width="240" height="240">
+          <h2><%= link_to event.title, event %></h2>
+          <p><p><%= event.description %> This event is on <%= event.event_date.strftime("%B, %d %Y") %> at <%= event.event_time.strftime("%I:%M%p") %> </p></p>                 
+          <p><%= link_to "View details &raquo;".html_safe, event, class: "btn btn-default" %></p>
+        </div>
+
+ <% end %>
+   </div>
+   </div>
+
+<div class="apple_pagination">
+      <div clas="page_info">
+        <%= page_entries_info @events_foo %>
+      </div>
+      <%= will_paginate @events_foo, :container => false %>
+    </div>
